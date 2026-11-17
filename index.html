@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SIVAPRASAD G | Microsoft Certified Trainer and Python Developer</title>
+  <meta name="description" content="SIVAPRASAD G helps people and teams adopt AI: a Microsoft Certified Trainer since 2020 and a Python developer with hands-on experience building Azure AI agents. Based in Kerala, India.">
+  <meta name="author" content="Sivaprasad G">
+  <link rel="canonical" href="https://sprasadgdev.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="SIVAPRASAD G | Microsoft Certified Trainer and Python Developer">
+  <meta property="og:description" content="I help people and teams adopt AI. I build AI agents on Azure, and I train the people who use them.">
+  <meta property="og:url" content="https://sprasadgdev.github.io/">
+  <meta property="og:image" content="https://sprasadgdev.github.io/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sivaprasad G at the Apple Developer Center">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1a16" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d6a4c'/%3E%3Crect x='0' y='52' width='64' height='4' fill='%23d7ab55'/%3E%3Crect x='0' y='58' width='64' height='2' fill='%23d7ab55'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='26' fill='%23ffffff'%3ESG%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sivaprasad G",
+    "jobTitle": "Microsoft Certified Trainer and Python Developer",
+    "url": "https://sprasadgdev.github.io/",
+    "image": "https://sprasadgdev.github.io/photo.jpg",
+    "email": "mailto:sivaprasad.g@live.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Kerala",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://github.com/sprasadgdev",
+      "https://www.linkedin.com/in/sivaprasadg"
+    ],
+    "knowsLanguage": ["Malayalam", "English", "Japanese"]
+  }
+  </script>
+
+  <style>
+    /* Colour tokens. Deep backwater green for ink, kasavu gold for the border stripe. */
+    :root {
+      --paper: #ffffff;
+      --ink: #12261f;
+      --ink-soft: #4b5f57;
+      --line: #dbe3de;
+      --wash: #f1f5f2;
+      --leaf: #1d6a4c;
+      --on-leaf: #ffffff;
+      --zari: #b98a2e;
+      --glass-hi: rgba(255, 255, 255, 0.48);
+      --glass-lo: rgba(255, 255, 255, 0.22);
+      --glass-edge: rgba(255, 255, 255, 0.95);
+      --glass-rim: rgba(18, 38, 31, 0.09);
+      --glass-shadow: 0 10px 30px rgba(18, 38, 31, 0.10), 0 1px 2px rgba(18, 38, 31, 0.08);
+      --glass-filter: blur(12px) saturate(200%) brightness(1.06);
+      --edge-veil: rgba(255, 255, 255, 0.55);
+      --wrap: 1080px;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0d1a16;
+        --ink: #e7eeea;
+        --ink-soft: #a3b4ac;
+        --line: #23382f;
+        --wash: #12241e;
+        --leaf: #74c6a0;
+        --on-leaf: #0d1a16;
+        --zari: #d7ab55;
+        --glass-hi: rgba(40, 70, 60, 0.42);
+        --glass-lo: rgba(12, 28, 23, 0.26);
+        --glass-edge: rgba(255, 255, 255, 0.22);
+        --glass-rim: rgba(0, 0, 0, 0.35);
+        --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.30);
+        --glass-filter: blur(12px) saturate(180%) brightness(0.92);
+        --edge-veil: rgba(13, 26, 22, 0.55);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Zen Kaku Gothic New", "Yu Gothic", Meiryo, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { max-width: 100%; }
+    a { color: var(--leaf); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+    @media (max-width: 600px) { .wrap { padding-inline: 16px; } }
+
+    .skip {
+      position: absolute; left: 16px; top: 16px; transform: translateY(-200%);
+      background: var(--leaf); color: var(--on-leaf);
+      padding: 8px 14px; border-radius: 8px; text-decoration: none; z-index: 50;
+    }
+    .skip:focus { transform: none; }
+
+    /* Kasavu border: one wide gold band, a gap, one thin gold line. */
+    .kasavu {
+      height: 10px;
+      background:
+        linear-gradient(var(--zari), var(--zari)) top / 100% 5px no-repeat,
+        linear-gradient(var(--zari), var(--zari)) bottom / 100% 2px no-repeat;
+    }
+    .kasavu-top { transform-origin: left center; animation: weave 1s cubic-bezier(.2, .7, .2, 1) both; }
+    @keyframes weave { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    /* Liquid glass: only for controls that float above the content.
+       Clear body so the page shows through, a bright rim catching light from the top-left,
+       and a soft shadow so it floats. */
+    .glass {
+      position: relative; isolation: isolate;
+      background: linear-gradient(160deg, var(--glass-hi), var(--glass-lo));
+      -webkit-backdrop-filter: var(--glass-filter);
+      backdrop-filter: var(--glass-filter);
+      border: 1px solid var(--glass-rim);
+      box-shadow: inset 0 1px 0 var(--glass-edge), inset 0 -1px 0 rgba(255, 255, 255, 0.08), var(--glass-shadow);
+    }
+    .glass::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+      background: linear-gradient(135deg, var(--glass-edge), rgba(255, 255, 255, 0.05) 38%, rgba(255, 255, 255, 0) 62%, var(--glass-edge));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+      opacity: 0.8;
+    }
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .glass { background: var(--paper); }
+    }
+    @media (prefers-reduced-transparency: reduce) {
+      .glass { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .edge { display: none; }
+    }
+
+    /* Scroll edge effect: content softly blurs as it slides under the floating bars */
+    .edge {
+      position: fixed; left: 0; right: 0; z-index: 25; pointer-events: none;
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    }
+    .edge-top {
+      top: 0; height: 84px; opacity: 0; transition: opacity 0.3s ease;
+      background: linear-gradient(var(--edge-veil), transparent);
+      -webkit-mask-image: linear-gradient(#000 35%, transparent); mask-image: linear-gradient(#000 35%, transparent);
+    }
+    .edge-bottom {
+      bottom: 0; height: calc(96px + env(safe-area-inset-bottom)); display: none;
+      background: linear-gradient(transparent, var(--edge-veil));
+      -webkit-mask-image: linear-gradient(transparent, #000 65%); mask-image: linear-gradient(transparent, #000 65%);
+    }
+    :root.scrolled .edge-top { opacity: 1; }
+    @media (max-width: 820px) { .edge-bottom { display: block; } }
+
+    .icon {
+      width: 20px; height: 20px; flex: none;
+      fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* Header: a floating glass capsule that stays on screen */
+    .head-shell { position: sticky; top: 12px; z-index: 30; margin-top: 12px; }
+    .site-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 8px 8px 8px 10px; border-radius: 999px;
+      transition: padding 0.3s ease;
+    }
+    .mark { transition: width 0.3s ease, height 0.3s ease; }
+    :root.reading .site-head { padding-top: 5px; padding-bottom: 5px; }
+    :root.reading .mark { width: 26px; height: 26px; }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap;
+    }
+    .mark { width: 30px; height: 30px; flex: none; }
+    .site-head nav { display: flex; align-items: center; gap: 4px; }
+    .site-head nav a {
+      color: var(--ink-soft); text-decoration: none; font-size: 1rem;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .site-head nav a:hover { color: var(--ink); background: var(--glass-lo); }
+    .lang-btn {
+      font: inherit; font-size: 0.95rem; line-height: 1.4; font-weight: 600;
+      color: var(--leaf); cursor: pointer; margin-left: 6px;
+      background: var(--paper); border: 1px solid var(--glass-rim); border-radius: 999px; padding: 6px 14px; min-height: 40px;
+    }
+    .lang-btn:hover { border-color: var(--leaf); }
+    @media (max-width: 860px) {
+      .site-head nav a { display: none; }
+    }
+
+    section[id] { scroll-margin-top: 96px; }
+
+    /* Icon chips for links */
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 44px; padding: 8px 16px 8px 13px; border-radius: 999px;
+      color: var(--ink); text-decoration: none; font: inherit; font-size: 0.98rem; font-weight: 500;
+      cursor: pointer; white-space: nowrap; overflow-wrap: normal;
+    }
+    .chip:hover { color: var(--leaf); }
+    .btn .icon { margin-right: 8px; }
+
+    /* Phone dock: quick contact, always in reach */
+    .dock {
+      position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom));
+      transform: translateX(-50%); z-index: 30;
+      display: none; gap: 2px; padding: 6px; border-radius: 999px;
+    }
+    .dock a, .dock button {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      min-width: 66px; min-height: 48px; padding: 7px 10px 5px; border-radius: 999px;
+      color: var(--ink); text-decoration: none; background: none; border: 0;
+      font: inherit; font-size: 0.72rem; font-weight: 600; line-height: 1.2; cursor: pointer;
+      white-space: nowrap; overflow-wrap: normal; letter-spacing: 0;
+    }
+    .dock a:active, .dock button:active { background: var(--glass-lo); }
+    .dock .icon { width: 22px; height: 22px; }
+    .dock span, .dock .label { transition: opacity 0.25s ease, max-height 0.3s ease; max-height: 1.4em; overflow: hidden; }
+    .dock a, .dock button { transition: padding 0.3s ease, min-height 0.3s ease; }
+    :root.reading .dock a, :root.reading .dock button { min-height: 40px; padding-top: 9px; padding-bottom: 9px; }
+    :root.reading .dock span, :root.reading .dock .label { opacity: 0; max-height: 0; }
+    @media (max-width: 820px) {
+      .dock { display: flex; }
+      body { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+    }
+
+    /* Confirmation after copying the link */
+    .toast {
+      position: fixed; left: 50%; bottom: calc(32px + env(safe-area-inset-bottom)); z-index: 40;
+      transform: translate(-50%, 10px); opacity: 0; pointer-events: none;
+      padding: 10px 18px; border-radius: 999px; font-size: 0.95rem; font-weight: 600;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 820px) { .toast { bottom: calc(100px + env(safe-area-inset-bottom)); } }
+
+    /* Type scale */
+    h1, h2, h3, h4 { margin: 0; line-height: 1.12; letter-spacing: -0.03em; }
+    h2 {
+      font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+      font-weight: 650;
+      margin-bottom: 32px;
+    }
+    h3 { font-size: 1.3rem; font-weight: 650; }
+    p { margin: 0 0 1em; }
+
+    /* Hero */
+    .hero { padding-top: clamp(36px, 8vw, 96px); padding-bottom: clamp(56px, 9vw, 112px); }
+    .hero h1 {
+      text-transform: uppercase;
+      font-size: clamp(2.6rem, 10.5vw, 6.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin-bottom: 18px;
+      animation: rise 0.9s 0.25s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .roleline {
+      font-size: clamp(1.05rem, 1.7vw, 1.3rem); font-weight: 500; color: var(--ink-soft);
+      margin: 0 0 clamp(24px, 3.5vw, 40px);
+      animation: rise 0.9s 0.35s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: clamp(32px, 6vw, 80px); align-items: start;
+      animation: rise 0.9s 0.5s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    .lead {
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem); line-height: 1.3;
+      font-weight: 500; max-width: 26ch; margin-bottom: 20px; letter-spacing: -0.015em;
+    }
+    .intro { color: var(--ink-soft); max-width: 52ch; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px;
+      border-radius: 999px; border: 1.5px solid var(--leaf);
+      color: var(--leaf); text-decoration: none; font-weight: 600; font-size: 1.05rem;
+    }
+    .btn:hover { background: var(--wash); }
+    .btn-primary { background: var(--leaf); color: var(--on-leaf); }
+    .btn-primary:hover { background: var(--leaf); filter: brightness(1.08); }
+    .elsewhere { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 20px 0 0; }
+
+    .portrait {
+      position: relative; margin: 0 0 clamp(36px, 5vw, 64px);
+      border-radius: 24px; overflow: hidden; background: var(--wash);
+      animation: rise 0.9s 0.4s cubic-bezier(.2, .7, .2, 1) both;
+    }
+    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
+    .portrait::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 11px;
+      background:
+        linear-gradient(var(--zari), var(--zari)) top / 100% 5px no-repeat,
+        linear-gradient(var(--zari), var(--zari)) bottom / 100% 2px no-repeat;
+    }
+    @media (max-width: 640px) {
+      .portrait { border-radius: 20px; }
+      .portrait img { aspect-ratio: 1 / 1; }
+    }
+
+    .now { border-left: 2px solid var(--zari); padding-left: 22px; }
+    .now h2 { font-size: 1.15rem; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .now ul { list-style: none; margin: 0; padding: 0; }
+    .now li { color: var(--ink-soft); padding-block: 10px; border-top: 1px solid var(--line); font-size: 1.02rem; line-height: 1.45; }
+    .now li:first-child { border-top: 0; padding-top: 0; }
+    .now strong { color: var(--ink); font-weight: 600; display: block; }
+
+    @media (max-width: 820px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* Sections */
+    .section { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
+    .section-intro { max-width: 60ch; color: var(--ink-soft); margin-top: -12px; margin-bottom: 36px; }
+
+    /* What I do: three strengths, each backed by evidence */
+    .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
+    .pillars article { border-top: 2px solid var(--ink); padding-top: 18px; }
+    .pillars h3 { margin-bottom: 10px; }
+    .pillars p { font-size: 1.02rem; color: var(--ink-soft); }
+    .pillars .proof { font-size: 0.95rem; color: var(--ink); margin: 0; }
+    .pillars .proof span { color: var(--ink-soft); }
+    @media (max-width: 820px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+
+    /* Featured project as a short case study */
+    .feature {
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 64px);
+      background: var(--wash); border-radius: 24px;
+      padding: clamp(24px, 4.5vw, 52px);
+    }
+    .feature h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 8px; }
+    .meta { color: var(--ink-soft); font-size: 0.98rem; }
+    .case h4 { font-size: 0.98rem; font-weight: 650; color: var(--leaf); letter-spacing: -0.01em; margin: 22px 0 4px; }
+    .case p { max-width: 54ch; margin-bottom: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 24px 0; }
+    .tags li {
+      font-size: 0.9rem; padding: 3px 12px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--paper); color: var(--ink-soft);
+    }
+    .textlink { font-weight: 600; }
+
+    /* MotherWell flow: a real sequence, so it is numbered and joined by a line. */
+    .flow { list-style: none; margin: 0; padding: 0; counter-reset: step; align-self: center; }
+    .flow li {
+      position: relative; counter-increment: step;
+      padding: 0 0 26px 52px; line-height: 1.4;
+    }
+    .flow li:last-child { padding-bottom: 0; }
+    .flow li::before {
+      content: counter(step);
+      position: absolute; left: 0; top: -2px;
+      width: 34px; height: 34px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--paper); border: 2px solid var(--zari);
+      font-weight: 650; font-size: 0.95rem; color: var(--ink);
+    }
+    .flow li::after {
+      content: ""; position: absolute; left: 16px; top: 34px; bottom: 0;
+      width: 2px; background: var(--zari); opacity: 0.45;
+    }
+    .flow li:last-child::after { display: none; }
+    .flow .who { display: block; font-weight: 650; }
+    .flow .what { color: var(--ink-soft); font-size: 1rem; }
+    .flow code { font-size: 0.92em; background: var(--paper); padding: 0 5px; border-radius: 5px; }
+    @media (max-width: 820px) { .feature { grid-template-columns: minmax(0, 1fr); } }
+
+    /* Other projects */
+    .more {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 4vw, 64px); margin-top: clamp(40px, 5vw, 64px);
+    }
+    .more article { border-top: 2px solid var(--ink); padding-top: 18px; }
+    .more h3 { margin-bottom: 10px; }
+    .more p { font-size: 1.02rem; }
+    .more .meta { font-size: 0.95rem; margin: 0; }
+    @media (max-width: 820px) { .more { grid-template-columns: minmax(0, 1fr); } }
+
+    /* Experience timeline */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline > li {
+      display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px;
+      padding-block: 28px; border-top: 1px solid var(--line);
+    }
+    .timeline > li:first-child { border-top: 0; padding-top: 0; }
+    .when { color: var(--ink-soft); font-size: 1rem; font-variant-numeric: tabular-nums; margin: 0; padding-top: 3px; }
+    .org { color: var(--ink-soft); margin: 4px 0 12px; }
+    .timeline p:last-child { margin-bottom: 0; max-width: 62ch; }
+    .bullets { margin: 0; padding-left: 1.1em; max-width: 62ch; }
+    .bullets li { padding-left: 4px; margin-bottom: 6px; }
+    .bullets li::marker { color: var(--zari); }
+    @media (max-width: 640px) {
+      .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+    }
+
+    /* Skills and credentials */
+    .subhead { font-size: 1.15rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin: 0 0 56px; }
+    .skills div, .creds div { padding-block: 18px; border-top: 1px solid var(--line); }
+    .skills dt, .creds dt { font-weight: 600; line-height: 1.35; }
+    .skills dd, .creds dd { margin: 4px 0 0; color: var(--ink-soft); font-size: 1rem; }
+    .creds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin: 0; }
+    @media (max-width: 720px) { .skills, .creds { grid-template-columns: minmax(0, 1fr); } }
+    .mct-feature { display: flex; align-items: center; gap: 18px; padding-block: 18px; border-top: 1px solid var(--line); }
+    .mct-feature img { width: 52px; height: auto; flex: none; }
+    .mct-title { font-weight: 600; margin: 0; line-height: 1.35; }
+    .mct-sub { color: var(--ink-soft); font-size: 1rem; margin: 4px 0 0; }
+    .langs { margin-top: 36px; color: var(--ink-soft); }
+    .langs strong { color: var(--ink); font-weight: 600; }
+
+    /* Workshops */
+    .workshops { list-style: none; padding: 0; margin: 0 0 36px; }
+    .workshops li {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px;
+      padding-block: 24px; border-top: 1px solid var(--line);
+    }
+    .workshops li:last-child { border-bottom: 1px solid var(--line); }
+    .workshops p { margin: 0; color: var(--ink-soft); }
+    @media (max-width: 720px) { .workshops li { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+
+    /* Contact */
+    .contact p { max-width: 52ch; color: var(--ink-soft); }
+    .mail {
+      display: inline-block; margin: 8px 0 28px;
+      font-size: clamp(1.5rem, 4.6vw, 3rem); font-weight: 650; letter-spacing: -0.02em;
+      color: var(--ink); text-decoration-color: var(--zari); text-decoration-thickness: 3px;
+      overflow-wrap: anywhere;
+    }
+    .mail:hover { color: var(--leaf); }
+
+    /* Footer */
+    .site-foot { padding-block: 28px 40px; color: var(--ink-soft); font-size: 0.95rem; }
+    .site-foot p { margin: 0; }
+
+    /* Japanese version */
+    .ja-only { display: none; }
+    :root[lang="ja"] .ja-only { display: block; }
+    .kana {
+      font-size: clamp(1rem, 2vw, 1.3rem); color: var(--ink-soft);
+      letter-spacing: 0.12em; margin: 0 0 10px;
+    }
+    .ja-note {
+      font-size: 0.95rem; color: var(--ink-soft); background: var(--wash);
+      border-radius: 10px; padding: 10px 14px; max-width: 44em; margin-bottom: 28px;
+    }
+    :root[lang="ja"] body { font-family: "Geist", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Zen Kaku Gothic New", "Yu Gothic", Meiryo, sans-serif; line-height: 1.85; letter-spacing: 0.02em; overflow-wrap: anywhere; }
+    :root[lang="ja"] h2, :root[lang="ja"] h3, :root[lang="ja"] h4 { letter-spacing: 0.01em; line-height: 1.4; }
+    :root[lang="ja"] .lead { max-width: 21em; line-height: 1.55; letter-spacing: 0.01em; }
+    :root[lang="ja"] .intro, :root[lang="ja"] .case p, :root[lang="ja"] .contact p { max-width: 34em; }
+    :root[lang="ja"] p, :root[lang="ja"] li, :root[lang="ja"] dd, :root[lang="ja"] h2, :root[lang="ja"] h3 { word-break: auto-phrase; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .kasavu-top, .hero h1, .roleline, .portrait, .hero-grid { animation: none; }
+      .site-head, .mark, .dock a, .dock button, .dock span, .dock .label { transition: none; }
+    }
+    @media print {
+      .kasavu-top, .hero h1, .roleline, .hero-grid { animation: none; }
+      .head-shell, .dock, .toast, .edge, .actions, .elsewhere, .skip { display: none; }
+      .section { padding-block: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="kasavu kasavu-top" aria-hidden="true"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7.5L4 12l4.5 4.5M15.5 7.5L20 12l-4.5 4.5M13.5 5l-3 14"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10.8" r="2.1"/><path d="M5.9 16.2c.7-1.5 1.8-2.2 3.1-2.2s2.4.7 3.1 2.2M14.5 10h4M14.5 13.5h3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M7 10.5H6.5A1.5 1.5 0 0 0 5 12v7a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-7a1.5 1.5 0 0 0-1.5-1.5H17"/></symbol>
+  </svg>
+
+  <div class="head-shell wrap">
+    <header class="site-head glass">
+      <a class="brand" href="#main"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d6a4c"/><rect y="50" width="64" height="5" fill="#d7ab55"/><rect y="58" width="64" height="2" fill="#d7ab55"/><text x="32" y="38" text-anchor="middle" font-family="Geist, -apple-system, Segoe UI, Arial, sans-serif" font-weight="700" font-size="25" letter-spacing="-1" fill="#ffffff">SG</text></svg>Sivaprasad G</a>
+      <nav aria-label="Main">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#training" data-i18n="navTraining">Training</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <button class="lang-btn" id="lang-toggle" type="button" lang="ja" aria-label="日本語に切り替える">日本語</button>
+      </nav>
+    </header>
+  </div>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="name">
+      <h1 id="name">Sivaprasad G</h1>
+      <p class="kana ja-only" lang="ja">シヴァプラサード・G</p>
+      <p class="roleline" data-i18n="roleline">Microsoft Certified Trainer and Python developer, Kerala, India</p>
+      <figure class="portrait">
+        <picture>
+          <source media="(max-width: 640px)" srcset="photo-square.jpg" width="720" height="720">
+          <img src="photo.jpg" width="1460" height="730" fetchpriority="high" decoding="async"
+               alt="Sivaprasad G standing beside the Apple Developer Center sign">
+        </picture>
+      </figure>
+      <div class="hero-grid">
+        <div>
+          <p class="ja-note ja-only" lang="ja">日本語は現在勉強中です（初級）。このページの日本語は翻訳ツールを使って作成しました。</p>
+          <p class="lead" data-i18n="lead">I help people and teams adopt AI. I build AI agents on Azure, and I train the people who use them.</p>
+          <p class="intro" data-i18n="intro">Python developer with one year of professional experience and hands-on experience with Azure AI agents. Microsoft Certified Trainer since 2020.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:sivaprasad.g@live.com"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="emailMe">Email me</span></a>
+            <a class="btn" href="#projects" data-i18n="seeWork">See my work</a>
+          </div>
+          <ul class="elsewhere">
+            <li><a class="chip glass" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
+            <li><a class="chip glass" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
+            <li><button class="chip glass share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
+          </ul>
+        </div>
+        <aside class="now" aria-labelledby="now-title">
+          <h2 id="now-title" data-i18n="nowTitle">Right now</h2>
+          <ul>
+            <li data-i18n="now1"><strong>Teaching</strong>Hands-on AI workshops for colleges in Kerala</li>
+            <li data-i18n="now2"><strong>Learning Japanese</strong>Studying every day with the Japan Foundation's Marugoto course, working toward JLPT N3</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section wrap" aria-labelledby="about-title">
+      <h2 id="about-title" data-i18n="aboutTitle">What I do</h2>
+      <div class="pillars">
+        <article>
+          <h3 data-i18n="p1T">Build AI agents</h3>
+          <p data-i18n="p1P">I design and build AI agents in Python with Microsoft Foundry: single agents, function tools, and agents that work together.</p>
+          <p class="proof" data-i18n="p1E"><span>Projects:</span> MotherWell, OnboardIQ</p>
+        </article>
+        <article>
+          <h3 data-i18n="p2T">Train and enable people</h3>
+          <p data-i18n="p2P">As a Microsoft Certified Trainer since 2020, I turn new technology into hands-on sessions that people can follow and use at work.</p>
+          <p class="proof" data-i18n="p2E"><span>Experience:</span> corporate, one-to-one and college training</p>
+        </article>
+        <article>
+          <h3 data-i18n="p3T">Help businesses go digital</h3>
+          <p data-i18n="p3P">For a convention and events venue, I built the website and the Python back-end for customer enquiries, and advised on Google Business Profile and digital tools.</p>
+          <p class="proof" data-i18n="p3E"><span>Experience:</span> one year, full time</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section wrap" aria-labelledby="projects-title">
+      <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
+
+      <article class="feature">
+        <div class="case">
+          <h3>MotherWell</h3>
+          <p class="meta" data-i18n="mwMeta">Microsoft Agent-a-thon entry and Founderz Agent Architect final project, September 2026</p>
+          <h4 data-i18n="mwH1">The problem</h4>
+          <p data-i18n="mwP1">Blood reports are hard to read, so it is hard to know what to ask the doctor.</p>
+          <h4 data-i18n="mwH2">What it does</h4>
+          <p data-i18n="mwP2">A mother enters the values from her report and gets clear questions to take to her doctor. It suggests questions; it does not diagnose.</p>
+          <h4 data-i18n="mwH3">Key design decision</h4>
+          <p data-i18n="mwP3">Two agents split the work. The Analyser checks each value with a function tool. The Planner sees only the flagged results, never the full report, so less personal health data moves between agents.</p>
+          <h4 data-i18n="mwH4">My role</h4>
+          <p data-i18n="mwP4">Idea, product design and agent design. Built in Python on Microsoft Foundry with AI-assisted coding.</p>
+          <h4 data-i18n="mwH5">Next</h4>
+          <p data-i18n="mwP5">A WhatsApp version, so mothers can use it without installing an app.</p>
+          <ul class="tags" aria-label="Built with">
+            <li>Python</li>
+            <li>Microsoft Foundry</li>
+            <li data-i18n="tagMulti">Multi-agent</li>
+            <li data-i18n="tagTools">Function tools</li>
+          </ul>
+          <a class="textlink" href="https://github.com/sprasadgdev/motherwell" data-i18n="mwLink">View the code on GitHub</a>
+        </div>
+        <ol class="flow" aria-label="How MotherWell works">
+          <li data-i18n="flow1"><span class="who">Mother</span><span class="what">Enters the values from her blood report</span></li>
+          <li data-i18n="flow2"><span class="who">Analyser agent</span><span class="what">Checks each value with the <code>check_values</code> tool and flags anything outside the range</span></li>
+          <li data-i18n="flow3"><span class="who">Planner agent</span><span class="what">Reads only the flags, not the full report</span></li>
+          <li data-i18n="flow4"><span class="who">Result</span><span class="what">Plain questions to ask the doctor</span></li>
+        </ol>
+      </article>
+
+      <div class="more">
+        <article>
+          <h3>OnboardIQ</h3>
+          <p data-i18n="oiqP">A four-agent platform for enterprise employee onboarding, built on Azure AI Foundry with a Streamlit interface.</p>
+          <p class="meta" data-i18n="oiqMeta">Microsoft Reasoning Agents badge, Agents League 2026</p>
+        </article>
+        <article>
+          <h3>Shiksha Copilot</h3>
+          <p data-i18n="shP">A multilingual classroom-support agent built on Azure.</p>
+          <p class="meta">AI Dev Days Hackathon 2026</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section wrap" aria-labelledby="exp-title">
+      <h2 id="exp-title" data-i18n="expTitle">Experience</h2>
+      <ol class="timeline">
+        <li>
+          <p class="when" data-i18n="job1When">Oct 2024 – Nov 2025</p>
+          <div>
+            <h3 data-i18n="job1Role">Python Web Developer and IT Consultant</h3>
+            <p class="org" data-i18n="job1Org">Convention and events venue, Kozhikode. Full time.</p>
+            <ul class="bullets">
+              <li data-i18n="job1B1">Designed and developed the venue's website.</li>
+              <li data-i18n="job1B2">Wrote the Python back-end code for customer enquiries and workflows.</li>
+              <li data-i18n="job1B3">Advised on Google Business Profile, digital tools and event packages.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when" data-i18n="job2When">2018 – 2024</p>
+          <div>
+            <h3 data-i18n="job2Role">Freelance Trainer and IT Consultant</h3>
+            <p class="org" data-i18n="job2Org">Independent</p>
+            <p data-i18n="job2P">Corporate and one-to-one IT training, including a corporate training engagement in Bangkok with The Knowledge Academy in 2018.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="skills" class="section wrap" aria-labelledby="skills-title">
+      <h2 id="skills-title" data-i18n="skillsTitle">Skills and certifications</h2>
+      <dl class="skills">
+        <div>
+          <dt data-i18n="sk1T">AI and cloud</dt>
+          <dd data-i18n="sk1D">Microsoft Foundry, Azure AI agents, function tools, multi-agent design, prompt engineering</dd>
+        </div>
+        <div>
+          <dt data-i18n="sk2T">Development</dt>
+          <dd data-i18n="sk2D">Python, Streamlit, HTML and CSS, SQL basics, Git and GitHub</dd>
+        </div>
+        <div>
+          <dt data-i18n="sk3T">Training</dt>
+          <dd data-i18n="sk3D">Workshop design, hands-on labs, Microsoft Learn courseware, explaining technology in simple language</dd>
+        </div>
+        <div>
+          <dt data-i18n="sk4T">Consulting</dt>
+          <dd data-i18n="sk4D">Digital tools for small businesses, Google Business Profile, turning business needs into simple workflows</dd>
+        </div>
+      </dl>
+
+      <h3 class="subhead" data-i18n="credsTitle">Certifications and education</h3>
+      <div class="mct-feature">
+        <img src="mct-badge.png" width="201" height="240" loading="lazy" alt="Microsoft Certified Trainer badge">
+        <div>
+          <p class="mct-title" data-i18n="mctT">Microsoft Certified Trainer</p>
+          <p class="mct-sub" data-i18n="mctD">Microsoft, since 2020</p>
+        </div>
+      </div>
+      <dl class="creds">
+        <div>
+          <dt>Microsoft Certified: Azure AI Engineer Associate (AI&#8209;102)</dt>
+          <dd data-i18n="ai102D">Microsoft, active</dd>
+        </div>
+        <div>
+          <dt data-i18n="aaT">Agent Architect programme</dt>
+          <dd data-i18n="aaD">Founderz AI &amp; Business School with Microsoft, September 2026</dd>
+        </div>
+        <div>
+          <dt data-i18n="raT">Reasoning Agents badge</dt>
+          <dd data-i18n="raD">Microsoft Agents League, July 2026</dd>
+        </div>
+        <div>
+          <dt data-i18n="degT">B.Sc. Information Technology</dt>
+          <dd data-i18n="degD">Kuvempu University, 2013</dd>
+        </div>
+      </dl>
+      <p class="langs" data-i18n="langs"><strong>Languages:</strong> Malayalam (native), English (professional), Japanese (beginner; studying the Japan Foundation's Marugoto A1-1 course, aiming for JLPT N3).</p>
+    </section>
+
+    <section id="training" class="section wrap" aria-labelledby="training-title">
+      <h2 id="training-title" data-i18n="wsTitle">Training and workshops</h2>
+      <p class="section-intro" data-i18n="wsIntro">One-day, hands-on sessions for colleges and teams. Every participant builds something real by the end of the day, using free tools and simple language.</p>
+      <ul class="workshops">
+        <li>
+          <h3 data-i18n="ws1T">AI fundamentals, hands-on</h3>
+          <p data-i18n="ws1P">Core AI ideas and responsible AI, aligned to the Microsoft AI-901 Azure AI Fundamentals exam. Participants build a small AI app on Azure.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ws2T">Build AI agents with Microsoft Foundry</h3>
+          <p data-i18n="ws2P">How agents use tools and instructions, from a single agent to two agents working together, like the ones in MotherWell.</p>
+        </li>
+        <li>
+          <h3 data-i18n="ws3T">GitHub basics: publish your portfolio</h3>
+          <p data-i18n="ws3P">Create a GitHub account, make a repository and put a personal website live on GitHub Pages, the same way this site is published.</p>
+        </li>
+      </ul>
+      <a class="btn btn-primary" href="mailto:sivaprasad.g@live.com?subject=Workshop%20enquiry" data-i18n="wsCta">Ask about a workshop</a>
+    </section>
+
+    <section id="contact" class="section wrap contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" data-i18n="contactTitle">Get in touch</h2>
+      <p data-i18n="contactP">I'm open to roles in DX consulting, technical training and Python or Azure AI development, and to workshop invitations. Email is the quickest way to reach me.</p>
+      <a class="mail" href="mailto:sivaprasad.g@live.com">sivaprasad.g@live.com</a>
+      <ul class="elsewhere">
+        <li><a class="chip glass" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
+        <li><a class="chip glass" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
+        <li><button class="chip glass share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
+      </ul>
+    </section>
+  </main>
+
+  <nav class="dock glass" aria-label="Quick contact">
+    <a href="mailto:sivaprasad.g@live.com"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="dockMail">Email</span></a>
+    <a href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg><span class="label">GitHub</span></a>
+    <a href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg><span class="label">LinkedIn</span></a>
+    <button class="share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button>
+  </nav>
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+  <div class="edge edge-top" aria-hidden="true"></div>
+  <div class="edge edge-bottom" aria-hidden="true"></div>
+
+  <div class="kasavu" aria-hidden="true"></div>
+  <footer class="site-foot wrap">
+    <p>&copy; <span id="year">2026</span> SIVAPRASAD G. <span data-i18n="foot">Built with plain HTML and published with GitHub Pages.</span></p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Compact the floating bars while reading down; bring them back when scrolling up or near the end.
+    (function () {
+      var root = document.documentElement, last = window.scrollY, ticking = false;
+      function update() {
+        var y = window.scrollY;
+        root.classList.toggle("scrolled", y > 8);
+        var nearEnd = window.innerHeight + y > document.documentElement.scrollHeight - 80;
+        if (y > 120 && y > last + 4 && !nearEnd) root.classList.add("reading");
+        else if (y < last - 4 || y <= 120 || nearEnd) root.classList.remove("reading");
+        last = y; ticking = false;
+      }
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+    })();
+
+    (function () {
+      var ja = {
+        skip: "本文へスキップ",
+        navAbout: "強み",
+        navProjects: "制作実績",
+        navExperience: "経歴",
+        navTraining: "研修",
+        navContact: "連絡先",
+        roleline: "マイクロソフト認定トレーナー・Python 開発者（インド・ケララ州）",
+        lead: "人とチームの AI 活用を支援しています。Azure で AI エージェントを開発し、それを使う人たちのトレーニングも行います。",
+        intro: "実務経験1年の Python 開発者で、Azure AI エージェントの開発経験があります。2020年からマイクロソフト認定トレーナー（MCT）として活動しています。",
+        emailMe: "メールで連絡する",
+        seeWork: "制作実績を見る",
+        share: "共有",
+        dockMail: "メール",
+        nowTitle: "現在の取り組み",
+        now1: "<strong>指導</strong>ケララ州の大学向けに、実践型の AI ワークショップを実施",
+        now2: "<strong>日本語の学習</strong>国際交流基金の「まるごと」コースで毎日勉強中。JLPT N3 合格が目標です。",
+        aboutTitle: "私の強み",
+        p1T: "AI エージェントを作る",
+        p1P: "Python と Microsoft Foundry で AI エージェントを設計・開発します。単体のエージェント、関数ツール、複数エージェントの連携に対応します。",
+        p1E: "<span>実績：</span>MotherWell、OnboardIQ",
+        p2T: "研修で人を育て、定着を支援する",
+        p2P: "2020年からマイクロソフト認定トレーナーとして、新しい技術を、誰でもついて来られて仕事ですぐ使える実践型の研修にしています。",
+        p2E: "<span>経験：</span>企業研修、個人指導、大学向けワークショップ",
+        p3T: "企業のデジタル化を支援する",
+        p3P: "コンベンション・イベント会場のために、Web サイトと顧客問い合わせ用の Python バックエンドを開発し、Google ビジネスプロフィールやデジタルツールの活用を助言しました。",
+        p3E: "<span>経験：</span>1年間、フルタイム",
+        projectsTitle: "制作実績",
+        mwMeta: "Microsoft Agent-a-thon 応募作品、Founderz Agent Architect プログラム最終課題（2026年9月）",
+        mwH1: "課題",
+        mwP1: "血液検査の結果は読み解きにくく、医師に何を聞けばよいか分かりにくいものです。",
+        mwH2: "できること",
+        mwP2: "母親が検査結果の数値を入力すると、医師に聞くべき質問が分かりやすく表示されます。質問を提案するだけで、診断は行いません。",
+        mwH3: "設計上の工夫",
+        mwP3: "2つのエージェントで役割を分けました。Analyser は関数ツールで各数値をチェックします。Planner はフラグが付いた結果だけを受け取り、検査結果の全体は見ません。そのため、エージェント間でやり取りする個人の健康データが少なくなります。",
+        mwH4: "担当",
+        mwP4: "アイデア、プロダクト設計、エージェント設計を担当。Microsoft Foundry 上で、AI を活用したコーディングにより Python で開発しました。",
+        mwH5: "今後",
+        mwP5: "アプリを入れなくても使えるよう、WhatsApp 版を計画しています。",
+        tagMulti: "マルチエージェント",
+        tagTools: "関数ツール",
+        mwLink: "GitHub でコードを見る",
+        flow1: "<span class=\"who\">母親</span><span class=\"what\">血液検査の数値を入力する</span>",
+        flow2: "<span class=\"who\">Analyser エージェント</span><span class=\"what\"><code>check_values</code> ツールで各数値を確認し、基準範囲外の項目にフラグを付ける</span>",
+        flow3: "<span class=\"who\">Planner エージェント</span><span class=\"what\">検査結果の全体ではなく、フラグだけを読む</span>",
+        flow4: "<span class=\"who\">結果</span><span class=\"what\">医師に聞くための、分かりやすい質問</span>",
+        oiqP: "4つのエージェントで構成された、企業の新入社員オンボーディング支援プラットフォーム。Azure AI Foundry と Streamlit で構築。",
+        oiqMeta: "Microsoft Agents League 2026 で Reasoning Agents バッジを取得",
+        shP: "Azure で構築した、多言語対応の授業サポートエージェント。",
+        expTitle: "経歴",
+        job1When: "2024年10月 – 2025年11月",
+        job1Role: "Python Web 開発者・IT コンサルタント",
+        job1Org: "コンベンション・イベント会場（コーリコード）、フルタイム",
+        job1B1: "会場の Web サイトを設計・開発しました。",
+        job1B2: "顧客からの問い合わせと業務フローのための Python バックエンドを作成しました。",
+        job1B3: "Google ビジネスプロフィール、デジタルツール、イベントプランについて助言しました。",
+        job2When: "2018年 – 2024年",
+        job2Role: "フリーランス トレーナー・IT コンサルタント",
+        job2Org: "個人事業",
+        job2P: "企業向けおよび個人向けの IT 研修を担当。2018年には、バンコクで The Knowledge Academy の企業研修を行いました。",
+        skillsTitle: "スキル・資格",
+        sk1T: "AI・クラウド",
+        sk1D: "Microsoft Foundry、Azure AI エージェント、関数ツール、マルチエージェント設計、プロンプトエンジニアリング",
+        sk2T: "開発",
+        sk2D: "Python、Streamlit、HTML・CSS、SQL（基礎）、Git・GitHub",
+        sk3T: "研修",
+        sk3D: "ワークショップ設計、ハンズオンラボ、Microsoft Learn 教材、技術を分かりやすい言葉で説明すること",
+        sk4T: "コンサルティング",
+        sk4D: "中小企業向けデジタルツール、Google ビジネスプロフィール、業務のニーズをシンプルな仕組みに落とし込むこと",
+        credsTitle: "資格・学歴",
+        mctT: "マイクロソフト認定トレーナー（MCT）",
+        mctD: "Microsoft、2020年から",
+        ai102D: "Microsoft、有効",
+        aaT: "Agent Architect プログラム修了",
+        aaD: "Founderz AI &amp; Business School（Microsoft と共同）、2026年9月",
+        raT: "Reasoning Agents バッジ",
+        raD: "Microsoft Agents League、2026年7月",
+        degT: "情報技術学士（B.Sc. IT）",
+        degD: "Kuvempu University（インド）、2013年",
+        langs: "<strong>言語：</strong>マラヤーラム語（母語）、英語（ビジネスレベル）、日本語（初級。国際交流基金「まるごと」A1-1 で学習中、JLPT N3 が目標）",
+        wsTitle: "研修・ワークショップ",
+        wsIntro: "大学やチーム向けの、1日で完結する実践型セッションです。無料ツールと分かりやすい言葉を使い、参加者全員がその日のうちに実際に何かを作ります。",
+        ws1T: "実践で学ぶ AI の基礎",
+        ws1P: "AI の基本と責任ある AI を、Microsoft AI-901（Azure AI Fundamentals）試験の内容に沿って学びます。参加者は Azure で小さな AI アプリを作ります。",
+        ws2T: "Microsoft Foundry で AI エージェントを作る",
+        ws2P: "エージェントがツールと指示をどう使うかを学びます。1つのエージェントから始めて、MotherWell のように2つのエージェントが連携する仕組みまで扱います。",
+        ws3T: "GitHub 入門：ポートフォリオを公開する",
+        ws3P: "GitHub アカウントとリポジトリを作り、GitHub Pages で自分の Web サイトを公開します。このサイトと同じ方法です。",
+        wsCta: "ワークショップについて問い合わせる",
+        contactTitle: "お問い合わせ",
+        contactP: "DX コンサルティング、技術研修、Python・Azure AI 開発のお仕事、そしてワークショップのご依頼をお待ちしています。メールでのご連絡が一番確実です。",
+        foot: "シンプルな HTML で作り、GitHub Pages で公開しています。"
+      };
+      var titles = {
+        en: document.title,
+        ja: "SIVAPRASAD G | マイクロソフト認定トレーナー・Python 開発者"
+      };
+      var en = {};
+      var nodes = document.querySelectorAll("[data-i18n]");
+      var btn = document.getElementById("lang-toggle");
+      var current = "en";
+
+      function apply(lang, updateUrl) {
+        nodes.forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (!(key in en)) en[key] = el.innerHTML;
+          el.innerHTML = (lang === "ja" && ja[key]) ? ja[key] : en[key];
+        });
+        document.documentElement.lang = lang;
+        document.title = titles[lang];
+        btn.textContent = lang === "ja" ? "English" : "日本語";
+        btn.lang = lang === "ja" ? "en" : "ja";
+        btn.setAttribute("aria-label", lang === "ja" ? "Switch to English" : "日本語に切り替える");
+        current = lang;
+        if (updateUrl) {
+          try {
+            var url = new URL(window.location.href);
+            if (lang === "ja") url.searchParams.set("lang", "ja");
+            else url.searchParams.delete("lang");
+            history.replaceState(null, "", url);
+          } catch (e) {}
+        }
+      }
+
+      btn.addEventListener("click", function () {
+        var next = current === "ja" ? "en" : "ja";
+        apply(next, true);
+        try { localStorage.setItem("lang", next); } catch (e) {}
+      });
+
+      var copiedMsg = { en: "Link copied", ja: "リンクをコピーしました" };
+      var toast = document.getElementById("toast");
+      var toastTimer;
+      function showToast(text) {
+        toast.textContent = text;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 2200);
+      }
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+        return new Promise(function (resolve, reject) {
+          var area = document.createElement("textarea");
+          area.value = text; area.setAttribute("readonly", "");
+          area.style.position = "fixed"; area.style.opacity = "0";
+          document.body.appendChild(area); area.select();
+          var ok = false;
+          try { ok = document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(area);
+          ok ? resolve() : reject();
+        });
+      }
+      function shareSite() {
+        var url = "https://sprasadgdev.github.io/" + (current === "ja" ? "?lang=ja" : "");
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: url }).catch(function () {});
+          return;
+        }
+        copyText(url).then(function () { showToast(copiedMsg[current]); }, function () { showToast(url); });
+      }
+      document.querySelectorAll(".share-btn").forEach(function (b) { b.addEventListener("click", shareSite); });
+
+      // Choose the starting language: ?lang= in the link, then the visitor's last choice, then their browser language.
+      var start = "en";
+      try {
+        var fromUrl = new URLSearchParams(window.location.search).get("lang");
+        var saved = null;
+        try { saved = localStorage.getItem("lang"); } catch (e) {}
+        if (fromUrl === "ja" || fromUrl === "en") start = fromUrl;
+        else if (saved === "ja" || saved === "en") start = saved;
+        else if ((navigator.language || "").toLowerCase().indexOf("ja") === 0) start = "ja";
+      } catch (e) {}
+      if (start === "ja") apply("ja", false);
+    })();
+  </script>
+</body>
+</html>
