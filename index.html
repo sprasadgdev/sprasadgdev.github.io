@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://sprasadgdev.github.io/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Sivaprasad G at the Apple Developer Center">
+  <meta property="og:image:alt" content="SIVAPRASAD G, Microsoft Certified Trainer and Python developer">
   <meta name="twitter:card" content="summary_large_image">
 
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,8 +34,7 @@
     "name": "Sivaprasad G",
     "jobTitle": "Microsoft Certified Trainer and Python Developer",
     "url": "https://sprasadgdev.github.io/",
-    "image": "https://sprasadgdev.github.io/photo.jpg",
-    "email": "mailto:sivaprasad.g@live.com",
+    "image": "https://sprasadgdev.github.io/photo-square.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "Kerala",
@@ -198,11 +197,13 @@
     }
     .site-head nav a:hover { color: var(--ink); background: var(--glass-lo); }
     .lang-btn {
+      display: inline-flex; align-items: center; gap: 6px;
       font: inherit; font-size: 0.95rem; line-height: 1.4; font-weight: 600;
       color: var(--leaf); cursor: pointer; margin-left: 6px;
       background: var(--paper); border: 1px solid var(--glass-rim); border-radius: 999px; padding: 6px 14px; min-height: 40px;
     }
     .lang-btn:hover { border-color: var(--leaf); }
+    .lang-btn .icon { width: 17px; height: 17px; }
     @media (max-width: 860px) {
       .site-head nav a { display: none; }
     }
@@ -215,8 +216,10 @@
       min-height: 44px; padding: 8px 16px 8px 13px; border-radius: 999px;
       color: var(--ink); text-decoration: none; font: inherit; font-size: 0.98rem; font-weight: 500;
       cursor: pointer; white-space: nowrap; overflow-wrap: normal;
+      background: var(--paper); border: 1px solid var(--line);
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .chip:hover { color: var(--leaf); }
+    .chip:hover { color: var(--leaf); border-color: var(--leaf); background: var(--wash); }
     .btn .icon { margin-right: 8px; }
 
     /* Phone dock: quick contact, always in reach */
@@ -281,8 +284,9 @@
       animation: rise 0.9s 0.35s cubic-bezier(.2, .7, .2, 1) both;
     }
     .hero-grid {
-      display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: clamp(32px, 6vw, 80px); align-items: start;
+      display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      grid-template-areas: "text photo" "text now";
+      gap: 32px clamp(32px, 6vw, 80px); align-items: start;
       animation: rise 0.9s 0.5s cubic-bezier(.2, .7, .2, 1) both;
     }
     .lead {
@@ -302,21 +306,19 @@
     .elsewhere { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 20px 0 0; }
 
     .portrait {
-      position: relative; margin: 0 0 clamp(36px, 5vw, 64px);
+      grid-area: photo; position: relative; margin: 0;
       border-radius: 24px; overflow: hidden; background: var(--wash);
-      animation: rise 0.9s 0.4s cubic-bezier(.2, .7, .2, 1) both;
+      box-shadow: 0 20px 48px rgba(18, 38, 31, 0.14), 0 2px 6px rgba(18, 38, 31, 0.06);
     }
-    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
+    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
     .portrait::after {
       content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 11px;
       background:
         linear-gradient(var(--zari), var(--zari)) top / 100% 5px no-repeat,
         linear-gradient(var(--zari), var(--zari)) bottom / 100% 2px no-repeat;
     }
-    @media (max-width: 640px) {
-      .portrait { border-radius: 20px; }
-      .portrait img { aspect-ratio: 1 / 1; }
-    }
+    .hero-text { grid-area: text; }
+    .now { grid-area: now; }
 
     .now { border-left: 2px solid var(--zari); padding-left: 22px; }
     .now h2 { font-size: 1.15rem; margin-bottom: 14px; letter-spacing: -0.01em; }
@@ -326,8 +328,10 @@
     .now strong { color: var(--ink); font-weight: 600; display: block; }
 
     @media (max-width: 820px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "text" "now"; }
+      .portrait { max-width: 420px; }
     }
+    @media (max-width: 640px) { .portrait { border-radius: 20px; } }
 
     /* Sections */
     .section { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
@@ -385,6 +389,55 @@
     .flow code { font-size: 0.92em; background: var(--paper); padding: 0 5px; border-radius: 5px; }
     @media (max-width: 820px) { .feature { grid-template-columns: minmax(0, 1fr); } }
 
+
+    /* Live MotherWell demo */
+    .flow li::before { transition: background 0.25s ease, color 0.25s ease; }
+    .flow li.on::before { background: var(--zari); color: #fff; }
+    .demo {
+      grid-column: 1 / -1; background: var(--paper); border: 1px solid var(--line);
+      border-radius: 18px; padding: clamp(18px, 3vw, 28px);
+    }
+    .demo-title { font-size: 1.15rem; font-weight: 650; margin: 0 0 6px; }
+    .demo-note { font-size: 0.92rem; color: var(--ink-soft); max-width: 70ch; margin: 0 0 18px; }
+    .demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 36px); }
+    .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .preset {
+      font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--ink); cursor: pointer;
+      min-height: 40px; padding: 6px 14px; border-radius: 999px;
+      background: var(--wash); border: 1px solid var(--line);
+    }
+    .preset[aria-pressed="true"] { border-color: var(--leaf); color: var(--leaf); }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: end; }
+    .field label { display: block; font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 4px; line-height: 1.3; }
+    .field input {
+      width: 100%; min-height: 44px; padding: 8px 12px; border-radius: 12px;
+      font: inherit; font-size: 1rem; color: var(--ink); background: var(--wash); border: 1px solid var(--line);
+    }
+    .field input:focus { outline: 2px solid var(--leaf); outline-offset: 1px; }
+    button.btn { font: inherit; font-weight: 600; font-size: 1.05rem; cursor: pointer; }
+    .run-btn { margin-top: 18px; }
+    .demo-out { border-left: 2px solid var(--zari); padding-left: 20px; min-height: 120px; scroll-margin-top: 96px; }
+    .demo-out .empty { color: var(--ink-soft); margin: 0; }
+    .demo-out h5 { font-size: 0.95rem; font-weight: 650; color: var(--leaf); margin: 0 0 4px; letter-spacing: -0.01em; }
+    .demo-out section + section { margin-top: 16px; }
+    .demo-out p { margin: 0 0 6px; font-size: 0.98rem; }
+    .flags { list-style: none; margin: 0; padding: 0; }
+    .flags li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 0.96rem; padding: 4px 0; }
+    .flags .tag {
+      font-size: 0.78rem; font-weight: 700; padding: 1px 9px; border-radius: 999px;
+      border: 1px solid var(--zari); color: var(--ink);
+    }
+    .flags .range { color: var(--ink-soft); font-size: 0.88rem; }
+    .payload {
+      display: block; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85rem;
+      background: var(--wash); border-radius: 10px; padding: 10px 12px; overflow-wrap: anywhere; letter-spacing: 0;
+    }
+    .questions { margin: 0; padding-left: 1.2em; }
+    .questions li { margin-bottom: 8px; font-size: 0.98rem; }
+    .questions li::marker { color: var(--zari); font-weight: 700; }
+    @media (max-width: 820px) { .demo-grid { grid-template-columns: minmax(0, 1fr); } }
+    @media (prefers-reduced-motion: reduce) { .flow li::before { transition: none; } }
+
     /* Other projects */
     .more {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -440,13 +493,7 @@
 
     /* Contact */
     .contact p { max-width: 52ch; color: var(--ink-soft); }
-    .mail {
-      display: inline-block; margin: 8px 0 28px;
-      font-size: clamp(1.5rem, 4.6vw, 3rem); font-weight: 650; letter-spacing: -0.02em;
-      color: var(--ink); text-decoration-color: var(--zari); text-decoration-thickness: 3px;
-      overflow-wrap: anywhere;
-    }
-    .mail:hover { color: var(--leaf); }
+    .btn-large { min-height: 56px; padding: 0 28px; font-size: 1.15rem; margin: 8px 0 28px; }
 
     /* Footer */
     .site-foot { padding-block: 28px 40px; color: var(--ink-soft); font-size: 0.95rem; }
@@ -455,6 +502,8 @@
     /* Japanese version */
     .ja-only { display: none; }
     :root[lang="ja"] .ja-only { display: block; }
+    .now li.ja-only { display: none; }
+    :root[lang="ja"] .now li.ja-only { display: block; }
     .kana {
       font-size: clamp(1rem, 2vw, 1.3rem); color: var(--ink-soft);
       letter-spacing: 0.12em; margin: 0 0 10px;
@@ -471,7 +520,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .kasavu-top, .hero h1, .roleline, .portrait, .hero-grid { animation: none; }
+      .kasavu-top, .hero h1, .roleline, .hero-grid { animation: none; }
       .site-head, .mark, .dock a, .dock button, .dock span, .dock .label { transition: none; }
     }
     @media print {
@@ -489,6 +538,7 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7.5L4 12l4.5 4.5M15.5 7.5L20 12l-4.5 4.5M13.5 5l-3 14"/></symbol>
     <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10.8" r="2.1"/><path d="M5.9 16.2c.7-1.5 1.8-2.2 3.1-2.2s2.4.7 3.1 2.2M14.5 10h4M14.5 13.5h3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5M12 3.5C9.6 5.9 8.4 8.7 8.4 12s1.2 6.1 3.6 8.5"/></symbol>
     <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3.5v11M8 7.5l4-4 4 4M7 10.5H6.5A1.5 1.5 0 0 0 5 12v7a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-7a1.5 1.5 0 0 0-1.5-1.5H17"/></symbol>
   </svg>
 
@@ -501,7 +551,7 @@
         <a href="#experience" data-i18n="navExperience">Experience</a>
         <a href="#training" data-i18n="navTraining">Training</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-        <button class="lang-btn" id="lang-toggle" type="button" lang="ja" aria-label="日本語に切り替える">日本語</button>
+        <button class="lang-btn" id="lang-toggle" type="button" aria-label="日本語に切り替える"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-label" lang="ja">日本語</span></button>
       </nav>
     </header>
   </div>
@@ -511,33 +561,29 @@
       <h1 id="name">Sivaprasad G</h1>
       <p class="kana ja-only" lang="ja">シヴァプラサード・G</p>
       <p class="roleline" data-i18n="roleline">Microsoft Certified Trainer and Python developer, Kerala, India</p>
-      <figure class="portrait">
-        <picture>
-          <source media="(max-width: 640px)" srcset="photo-square.jpg" width="720" height="720">
-          <img src="photo.jpg" width="1460" height="730" fetchpriority="high" decoding="async"
-               alt="Sivaprasad G standing beside the Apple Developer Center sign">
-        </picture>
-      </figure>
       <div class="hero-grid">
-        <div>
+        <div class="hero-text">
           <p class="ja-note ja-only" lang="ja">日本語は現在勉強中です（初級）。このページの日本語は翻訳ツールを使って作成しました。</p>
           <p class="lead" data-i18n="lead">I help people and teams adopt AI. I build AI agents on Azure, and I train the people who use them.</p>
           <p class="intro" data-i18n="intro">Python developer with one year of professional experience and hands-on experience with Azure AI agents. Microsoft Certified Trainer since 2020.</p>
           <div class="actions">
-            <a class="btn btn-primary" href="mailto:sivaprasad.g@live.com"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="emailMe">Email me</span></a>
+            <a class="btn btn-primary js-mail" href="#contact"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="emailMe">Email me</span></a>
             <a class="btn" href="#projects" data-i18n="seeWork">See my work</a>
           </div>
           <ul class="elsewhere">
-            <li><a class="chip glass" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
-            <li><a class="chip glass" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
-            <li><button class="chip glass share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
+            <li><a class="chip" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
+            <li><a class="chip" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
           </ul>
         </div>
+        <figure class="portrait">
+          <img src="photo-square.jpg" width="960" height="960" fetchpriority="high" decoding="async" alt="Portrait of Sivaprasad G">
+        </figure>
         <aside class="now" aria-labelledby="now-title">
           <h2 id="now-title" data-i18n="nowTitle">Right now</h2>
           <ul>
             <li data-i18n="now1"><strong>Teaching</strong>Hands-on AI workshops for colleges in Kerala</li>
-            <li data-i18n="now2"><strong>Learning Japanese</strong>Studying every day with the Japan Foundation's Marugoto course, working toward JLPT N3</li>
+            <li class="ja-only" lang="ja"><strong>日本語の学習</strong>国際交流基金の「まるごと」コースで毎日勉強中。JLPT N3 合格が目標です。</li>
+            <li data-i18n="now3"><strong>Available</strong>Open to full-time roles and training engagements, starting immediately</li>
           </ul>
         </aside>
       </div>
@@ -572,11 +618,13 @@
           <h3>MotherWell</h3>
           <p class="meta" data-i18n="mwMeta">Microsoft Agent-a-thon entry and Founderz Agent Architect final project, September 2026</p>
           <h4 data-i18n="mwH1">The problem</h4>
-          <p data-i18n="mwP1">Blood reports are hard to read, so it is hard to know what to ask the doctor.</p>
+          <p data-i18n="mwP1">Blood reports are hard to read, and during pregnancy it is hard to know what to ask the doctor.</p>
           <h4 data-i18n="mwH2">What it does</h4>
-          <p data-i18n="mwP2">A mother enters the values from her report and gets clear questions to take to her doctor. It suggests questions; it does not diagnose.</p>
+          <p data-i18n="mwP2">A pregnant mother enters the values from her blood report and gets three questions for her doctor, a food note and when to re-test, in her own language. It suggests questions; it does not diagnose.</p>
           <h4 data-i18n="mwH3">Key design decision</h4>
-          <p data-i18n="mwP3">Two agents split the work. The Analyser checks each value with a function tool. The Planner sees only the flagged results, never the full report, so less personal health data moves between agents.</p>
+          <p data-i18n="mwP3">Two agents split the work. The Analyser calls a Python tool that checks each value against WHO ranges for her trimester. The Planner sees only the flagged results, never the full report, so less personal health data moves between agents.</p>
+          <h4 data-i18n="mwH6">Where else this pattern fits</h4>
+          <p data-i18n="mwP6">Any business document: invoices, HR forms or contracts. One agent checks the data; a second agent acts only on what was flagged, so sensitive details stay with the first.</p>
           <h4 data-i18n="mwH4">My role</h4>
           <p data-i18n="mwP4">Idea, product design and agent design. Built in Python on Microsoft Foundry with AI-assisted coding.</p>
           <h4 data-i18n="mwH5">Next</h4>
@@ -595,6 +643,30 @@
           <li data-i18n="flow3"><span class="who">Planner agent</span><span class="what">Reads only the flags, not the full report</span></li>
           <li data-i18n="flow4"><span class="who">Result</span><span class="what">Plain questions to ask the doctor</span></li>
         </ol>
+
+        <div class="demo" id="demo">
+          <h4 class="demo-title" data-i18n="demoTitle">Try it: run the two agents</h4>
+          <p class="demo-note" data-i18n="demoNote">This demo runs in your browser with simple adult ranges that mirror the two agents. The real app uses Microsoft Foundry agents and WHO pregnancy ranges by trimester. Sample values only, not medical advice.</p>
+          <div class="demo-grid">
+            <form class="demo-form" id="demo-form" novalidate>
+              <div class="presets" role="group" aria-label="Sample reports">
+                <button type="button" class="preset" data-sample="a" data-i18n="presetA">Sample report A</button>
+                <button type="button" class="preset" data-sample="b" data-i18n="presetB">Sample report B</button>
+                <button type="button" class="preset" data-sample="ok" data-i18n="presetOk">All in range</button>
+              </div>
+              <div class="fields">
+                <div class="field"><label for="f-hb" data-i18n="dHb">Hemoglobin (g/dL)</label><input id="f-hb" name="hb" type="number" step="0.1" inputmode="decimal"></div>
+                <div class="field"><label for="f-glu" data-i18n="dGlu">Fasting glucose (mg/dL)</label><input id="f-glu" name="glu" type="number" step="1" inputmode="decimal"></div>
+                <div class="field"><label for="f-a1c" data-i18n="dA1c">HbA1c (%)</label><input id="f-a1c" name="a1c" type="number" step="0.1" inputmode="decimal"></div>
+                <div class="field"><label for="f-vitd" data-i18n="dVitd">Vitamin D (ng/mL)</label><input id="f-vitd" name="vitd" type="number" step="1" inputmode="decimal"></div>
+                <div class="field"><label for="f-tsh" data-i18n="dTsh">TSH (mIU/L)</label><input id="f-tsh" name="tsh" type="number" step="0.1" inputmode="decimal"></div>
+                <div class="field"><label for="f-fer" data-i18n="dFer">Ferritin (ng/mL)</label><input id="f-fer" name="fer" type="number" step="1" inputmode="decimal"></div>
+              </div>
+              <button type="submit" class="btn btn-primary run-btn" data-i18n="runBtn">Run the agents</button>
+            </form>
+            <div class="demo-out" id="demo-out" aria-live="polite"></div>
+          </div>
+        </div>
       </article>
 
       <div class="more">
@@ -684,7 +756,7 @@
           <dd data-i18n="degD">Kuvempu University, 2013</dd>
         </div>
       </dl>
-      <p class="langs" data-i18n="langs"><strong>Languages:</strong> Malayalam (native), English (professional), Japanese (beginner; studying the Japan Foundation's Marugoto A1-1 course, aiming for JLPT N3).</p>
+      <p class="langs" data-i18n="langs"><strong>Languages:</strong> Malayalam (native), English (professional), Japanese (beginner).</p>
     </section>
 
     <section id="training" class="section wrap" aria-labelledby="training-title">
@@ -704,23 +776,23 @@
           <p data-i18n="ws3P">Create a GitHub account, make a repository and put a personal website live on GitHub Pages, the same way this site is published.</p>
         </li>
       </ul>
-      <a class="btn btn-primary" href="mailto:sivaprasad.g@live.com?subject=Workshop%20enquiry" data-i18n="wsCta">Ask about a workshop</a>
+      <a class="btn btn-primary js-mail" href="#contact" data-subject="Workshop enquiry" data-i18n="wsCta">Ask about a workshop</a>
     </section>
 
     <section id="contact" class="section wrap contact" aria-labelledby="contact-title">
       <h2 id="contact-title" data-i18n="contactTitle">Get in touch</h2>
       <p data-i18n="contactP">I'm open to roles in DX consulting, technical training and Python or Azure AI development, and to workshop invitations. Email is the quickest way to reach me.</p>
-      <a class="mail" href="mailto:sivaprasad.g@live.com">sivaprasad.g@live.com</a>
+      <a class="btn btn-primary btn-large js-mail" href="#contact"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="writeMe">Send me an email</span></a>
       <ul class="elsewhere">
-        <li><a class="chip glass" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
-        <li><a class="chip glass" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
-        <li><button class="chip glass share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
+        <li><a class="chip" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
+        <li><a class="chip" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
+        <li><button class="chip share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
       </ul>
     </section>
   </main>
 
   <nav class="dock glass" aria-label="Quick contact">
-    <a href="mailto:sivaprasad.g@live.com"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="dockMail">Email</span></a>
+    <a class="js-mail" href="#contact"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="dockMail">Email</span></a>
     <a href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg><span class="label">GitHub</span></a>
     <a href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg><span class="label">LinkedIn</span></a>
     <button class="share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button>
@@ -731,11 +803,23 @@
 
   <div class="kasavu" aria-hidden="true"></div>
   <footer class="site-foot wrap">
-    <p>&copy; <span id="year">2026</span> SIVAPRASAD G. <span data-i18n="foot">Built with plain HTML and published with GitHub Pages.</span></p>
+    <p>&copy; <span id="year">2026</span> SIVAPRASAD G. <span data-i18n="foot">Built with plain HTML and AI-assisted coding, and published with GitHub Pages.</span></p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Email: the address is not written on the page; it is put together only when someone taps an Email button.
+    (function () {
+      var user = ["work", "sivaprasad", "g"].join("."), host = ["gmail", "com"].join(".");
+      document.querySelectorAll(".js-mail").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          var subject = a.getAttribute("data-subject");
+          window.location.href = "mailto:" + user + "@" + host + (subject ? "?subject=" + encodeURIComponent(subject) : "");
+        });
+      });
+    })();
 
     // Compact the floating bars while reading down; bring them back when scrolling up or near the end.
     (function () {
@@ -770,7 +854,7 @@
         dockMail: "メール",
         nowTitle: "現在の取り組み",
         now1: "<strong>指導</strong>ケララ州の大学向けに、実践型の AI ワークショップを実施",
-        now2: "<strong>日本語の学習</strong>国際交流基金の「まるごと」コースで毎日勉強中。JLPT N3 合格が目標です。",
+        now3: "<strong>就業可能</strong>フルタイムの仕事や研修のご依頼を受け付けています。すぐに開始できます。",
         aboutTitle: "私の強み",
         p1T: "AI エージェントを作る",
         p1P: "Python と Microsoft Foundry で AI エージェントを設計・開発します。単体のエージェント、関数ツール、複数エージェントの連携に対応します。",
@@ -784,11 +868,13 @@
         projectsTitle: "制作実績",
         mwMeta: "Microsoft Agent-a-thon 応募作品、Founderz Agent Architect プログラム最終課題（2026年9月）",
         mwH1: "課題",
-        mwP1: "血液検査の結果は読み解きにくく、医師に何を聞けばよいか分かりにくいものです。",
+        mwP1: "血液検査の結果は読み解きにくく、妊娠中は特に、医師に何を聞けばよいか分かりにくいものです。",
         mwH2: "できること",
-        mwP2: "母親が検査結果の数値を入力すると、医師に聞くべき質問が分かりやすく表示されます。質問を提案するだけで、診断は行いません。",
+        mwP2: "妊娠中の母親が検査結果の数値を入力すると、医師に聞く3つの質問、食事のメモ、再検査の時期が、自分の言語で表示されます。質問を提案するだけで、診断は行いません。",
         mwH3: "設計上の工夫",
-        mwP3: "2つのエージェントで役割を分けました。Analyser は関数ツールで各数値をチェックします。Planner はフラグが付いた結果だけを受け取り、検査結果の全体は見ません。そのため、エージェント間でやり取りする個人の健康データが少なくなります。",
+        mwP3: "2つのエージェントで役割を分けました。Analyser は Python のツールを呼び出し、妊娠時期に応じた WHO の基準で各数値をチェックします。Planner はフラグが付いた結果だけを受け取り、検査結果の全体は見ません。そのため、エージェント間でやり取りする個人の健康データが少なくなります。",
+        mwH6: "ほかに活かせる場面",
+        mwP6: "請求書、人事書類、契約書など、あらゆるビジネス文書に応用できます。1つ目のエージェントがデータをチェックし、2つ目はフラグが付いた項目だけを扱うため、機密情報は1つ目のエージェントの中にとどまります。",
         mwH4: "担当",
         mwP4: "アイデア、プロダクト設計、エージェント設計を担当。Microsoft Foundry 上で、AI を活用したコーディングにより Python で開発しました。",
         mwH5: "今後",
@@ -796,6 +882,18 @@
         tagMulti: "マルチエージェント",
         tagTools: "関数ツール",
         mwLink: "GitHub でコードを見る",
+        demoTitle: "試してみる：2つのエージェントを動かす",
+        demoNote: "このデモは、成人の一般的な基準範囲を使った簡単なルールで2つのエージェントの動きを再現し、ブラウザ上で動きます。実際のアプリは Microsoft Foundry のエージェントと、妊娠時期ごとの WHO の基準を使います。数値はサンプルで、医療アドバイスではありません。",
+        presetA: "サンプル A",
+        presetB: "サンプル B",
+        presetOk: "すべて範囲内",
+        dHb: "ヘモグロビン（g/dL）",
+        dGlu: "空腹時血糖（mg/dL）",
+        dA1c: "HbA1c（%）",
+        dVitd: "ビタミンD（ng/mL）",
+        dTsh: "TSH（mIU/L）",
+        dFer: "フェリチン（ng/mL）",
+        runBtn: "エージェントを実行",
         flow1: "<span class=\"who\">母親</span><span class=\"what\">血液検査の数値を入力する</span>",
         flow2: "<span class=\"who\">Analyser エージェント</span><span class=\"what\"><code>check_values</code> ツールで各数値を確認し、基準範囲外の項目にフラグを付ける</span>",
         flow3: "<span class=\"who\">Planner エージェント</span><span class=\"what\">検査結果の全体ではなく、フラグだけを読む</span>",
@@ -844,8 +942,9 @@
         ws3P: "GitHub アカウントとリポジトリを作り、GitHub Pages で自分の Web サイトを公開します。このサイトと同じ方法です。",
         wsCta: "ワークショップについて問い合わせる",
         contactTitle: "お問い合わせ",
+        writeMe: "メールを送る",
         contactP: "DX コンサルティング、技術研修、Python・Azure AI 開発のお仕事、そしてワークショップのご依頼をお待ちしています。メールでのご連絡が一番確実です。",
-        foot: "シンプルな HTML で作り、GitHub Pages で公開しています。"
+        foot: "シンプルな HTML と AI を活用したコーディングで作り、GitHub Pages で公開しています。"
       };
       var titles = {
         en: document.title,
@@ -864,10 +963,12 @@
         });
         document.documentElement.lang = lang;
         document.title = titles[lang];
-        btn.textContent = lang === "ja" ? "English" : "日本語";
-        btn.lang = lang === "ja" ? "en" : "ja";
+        var label = btn.querySelector(".lang-label");
+        label.textContent = lang === "ja" ? "English" : "日本語";
+        label.lang = lang === "ja" ? "en" : "ja";
         btn.setAttribute("aria-label", lang === "ja" ? "Switch to English" : "日本語に切り替える");
         current = lang;
+        if (typeof demoRender === "function") demoRender();
         if (updateUrl) {
           try {
             var url = new URL(window.location.href);
@@ -915,6 +1016,168 @@
         copyText(url).then(function () { showToast(copiedMsg[current]); }, function () { showToast(url); });
       }
       document.querySelectorAll(".share-btn").forEach(function (b) { b.addEventListener("click", shareSite); });
+
+
+      // ---- MotherWell demo: Analyser checks values, Planner sees only the flags ----
+      var tests = [
+        { id: "hb",   key: "hemoglobin",      min: 12.0, max: 15.5, unit: "g/dL",  en: "Hemoglobin",      ja: "ヘモグロビン" },
+        { id: "glu",  key: "fasting_glucose", min: 70,   max: 99,   unit: "mg/dL", en: "Fasting glucose", ja: "空腹時血糖" },
+        { id: "a1c",  key: "hba1c",           min: 4.0,  max: 5.6,  unit: "%",     en: "HbA1c",           ja: "HbA1c" },
+        { id: "vitd", key: "vitamin_d",       min: 30,   max: 100,  unit: "ng/mL", en: "Vitamin D",       ja: "ビタミンD" },
+        { id: "tsh",  key: "tsh",             min: 0.4,  max: 4.0,  unit: "mIU/L", en: "TSH",             ja: "TSH" },
+        { id: "fer",  key: "ferritin",        min: 15,   max: 150,  unit: "ng/mL", en: "Ferritin",        ja: "フェリチン" }
+      ];
+      var samples = {
+        a:  { hb: 10.8, glu: 92,  a1c: 5.4, vitd: 14, tsh: 2.1, fer: 9 },
+        b:  { hb: 13.1, glu: 112, a1c: 6.1, vitd: 32, tsh: 5.6, fer: 40 },
+        ok: { hb: 13.4, glu: 86,  a1c: 5.2, vitd: 41, tsh: 1.8, fer: 62 }
+      };
+      var Q = {
+        en: {
+          hb_low: "My hemoglobin is below the usual range. What could be causing it, and should my iron or vitamin B12 be checked?",
+          hb_high: "My hemoglobin is above the usual range. Does this need any follow-up?",
+          glu_low: "My fasting glucose is below the usual range. What could cause this?",
+          glu_high: "My fasting glucose is above the usual range. Should we repeat the test or check my HbA1c?",
+          a1c_low: "My HbA1c is below the usual range. Does this need any follow-up?",
+          a1c_high: "My HbA1c is above the usual range. What does this say about my blood sugar over the last few months, and what should I do next?",
+          vitd_low: "My vitamin D is low. Do I need a supplement, and when should we test it again?",
+          vitd_high: "My vitamin D is above the usual range. Should I change any supplement I am taking?",
+          tsh_low: "My TSH is below the usual range. Should my thyroid be checked further?",
+          tsh_high: "My TSH is above the usual range. Should my thyroid be checked further?",
+          fer_low: "My ferritin (iron stores) is low. How can I improve it, and when should we test again?",
+          fer_high: "My ferritin is above the usual range. Does this need any follow-up?",
+          none: "All values are within the usual ranges. You can still ask: when should I repeat these tests?"
+        },
+        ja: {
+          hb_low: "ヘモグロビンが基準範囲より低いです。原因として何が考えられますか？鉄やビタミンB12も調べたほうがよいですか？",
+          hb_high: "ヘモグロビンが基準範囲より高いです。追加の確認は必要ですか？",
+          glu_low: "空腹時血糖が基準範囲より低いです。原因として何が考えられますか？",
+          glu_high: "空腹時血糖が基準範囲より高いです。再検査や HbA1c の検査をしたほうがよいですか？",
+          a1c_low: "HbA1c が基準範囲より低いです。追加の確認は必要ですか？",
+          a1c_high: "HbA1c が基準範囲より高いです。ここ数か月の血糖について何を意味し、次に何をすべきですか？",
+          vitd_low: "ビタミンDが低いです。サプリメントは必要ですか？次はいつ検査すべきですか？",
+          vitd_high: "ビタミンDが基準範囲より高いです。飲んでいるサプリメントを見直すべきですか？",
+          tsh_low: "TSH が基準範囲より低いです。甲状腺をさらに調べたほうがよいですか？",
+          tsh_high: "TSH が基準範囲より高いです。甲状腺をさらに調べたほうがよいですか？",
+          fer_low: "フェリチン（体内の鉄の貯蔵）が低いです。どうすれば改善できますか？次はいつ検査すべきですか？",
+          fer_high: "フェリチンが基準範囲より高いです。追加の確認は必要ですか？",
+          none: "すべての値が基準範囲内です。それでも「次はいつ検査すべきですか？」と聞いてみましょう。"
+        }
+      };
+      var T = {
+        en: { analyser: "Analyser agent", analyserLine: "Checked {n} values and flagged {f}.", planner: "Planner agent",
+              plannerLine: "Received only {f} flag(s), never the full report:", questions: "Questions to ask the doctor",
+              empty: "Pick a sample or type your own values, then press Run the agents.", low: "Low", high: "High",
+              usual: "usual", invalid: "Please enter a number for every value.",
+              analyserNone: "Checked {n} values. All are in the usual range.", plannerNone: "Nothing was flagged, so the Planner received an empty list:" },
+        ja: { analyser: "Analyser エージェント", analyserLine: "{n} 項目を確認し、{f} 件にフラグを付けました。", planner: "Planner エージェント",
+              plannerLine: "受け取ったのは {f} 件のフラグだけで、検査結果の全体は見ていません：", questions: "医師に聞く質問",
+              empty: "サンプルを選ぶか数値を入力して、「エージェントを実行」を押してください。", low: "低い", high: "高い",
+              usual: "基準", invalid: "すべての項目に数値を入力してください。",
+              analyserNone: "{n} 項目を確認しました。すべて基準範囲内です。", plannerNone: "フラグがないため、Planner は空のリストを受け取りました：" }
+      };
+      var form = document.getElementById("demo-form");
+      var out = document.getElementById("demo-out");
+      var steps = document.querySelectorAll(".flow li");
+      var lastRun = null, timers = [];
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+      function fmt(str, map) { return str.replace(/\{(\w+)\}/g, function (_, k) { return map[k]; }); }
+
+      // Analyser: checks every value against its usual range (like the check_values function tool)
+      function analyse(values) {
+        var flags = [];
+        tests.forEach(function (t) {
+          var v = values[t.id];
+          if (v < t.min) flags.push({ test: t, value: v, dir: "low" });
+          else if (v > t.max) flags.push({ test: t, value: v, dir: "high" });
+        });
+        return flags;
+      }
+      // Planner: gets only "name: low/high" lines, never the raw report
+      function plan(payload) {
+        if (!payload.length) return ["none"];
+        return payload.map(function (line) {
+          var parts = line.split(": ");
+          var t = tests.filter(function (x) { return x.key === parts[0]; })[0];
+          return t.id + "_" + parts[1];
+        });
+      }
+
+      function renderEmpty(msg) { out.innerHTML = ""; out.appendChild(el("p", "empty", msg || T[current].empty)); }
+
+      function renderResult(run) {
+        var L = T[current]; out.innerHTML = "";
+        var s1 = el("section");
+        s1.appendChild(el("h5", null, L.analyser));
+        s1.appendChild(el("p", null, fmt(run.flags.length ? L.analyserLine : L.analyserNone, { n: tests.length, f: run.flags.length })));
+        if (run.flags.length) {
+          var ul = el("ul", "flags");
+          run.flags.forEach(function (f) {
+            var li = el("li");
+            li.appendChild(el("span", null, f.test[current] + " " + f.value + " " + f.test.unit));
+            li.appendChild(el("span", "tag", f.dir === "low" ? L.low : L.high));
+            li.appendChild(el("span", "range", "(" + L.usual + " " + f.test.min + "–" + f.test.max + ")"));
+            ul.appendChild(li);
+          });
+          s1.appendChild(ul);
+        }
+        out.appendChild(s1);
+        var s2 = el("section");
+        s2.appendChild(el("h5", null, L.planner));
+        s2.appendChild(el("p", null, fmt(run.payload.length ? L.plannerLine : L.plannerNone, { f: run.payload.length })));
+        s2.appendChild(el("code", "payload", JSON.stringify(run.payload)));
+        out.appendChild(s2);
+        var s3 = el("section");
+        s3.appendChild(el("h5", null, L.questions));
+        var ol = el("ol", "questions");
+        run.plan.forEach(function (k) { ol.appendChild(el("li", null, Q[current][k])); });
+        s3.appendChild(ol);
+        out.appendChild(s3);
+      }
+
+      function demoRender() {
+        if (!out) return;
+        if (lastRun) renderResult(lastRun); else renderEmpty();
+      }
+
+      function fill(sampleId) {
+        var v = samples[sampleId];
+        tests.forEach(function (t) { form.elements[t.id].value = v[t.id]; });
+        form.querySelectorAll(".preset").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sample") === sampleId ? "true" : "false"); });
+      }
+
+      if (form) {
+        form.querySelectorAll(".preset").forEach(function (b) {
+          b.addEventListener("click", function () { fill(b.getAttribute("data-sample")); });
+        });
+        form.addEventListener("input", function () {
+          form.querySelectorAll(".preset").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var values = {}, ok = true;
+          tests.forEach(function (t) {
+            var n = parseFloat(form.elements[t.id].value);
+            if (isNaN(n)) ok = false; values[t.id] = n;
+          });
+          if (!ok) { lastRun = null; renderEmpty(T[current].invalid); return; }
+          var flags = analyse(values);
+          var payload = flags.map(function (f) { return f.test.key + ": " + f.dir; });
+          var run = { flags: flags, payload: payload, plan: plan(payload) };
+          timers.forEach(clearTimeout); timers = [];
+          steps.forEach(function (s) { s.classList.remove("on"); });
+          var delay = reduceMotion ? 0 : 280;
+          steps.forEach(function (s, i) { timers.push(setTimeout(function () { s.classList.add("on"); }, i * delay)); });
+          timers.push(setTimeout(function () {
+            lastRun = run; renderResult(run);
+            if (window.innerWidth <= 820) out.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+          }, steps.length * delay));
+        });
+        fill("a");
+        demoRender();
+      }
 
       // Choose the starting language: ?lang= in the link, then the visitor's last choice, then their browser language.
       var start = "en";
