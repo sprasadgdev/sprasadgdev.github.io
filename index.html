@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SIVAPRASAD G | Microsoft Certified Trainer and Python Developer</title>
   <meta name="description" content="SIVAPRASAD G helps people and teams adopt AI: a Microsoft Certified Trainer since 2020 and a Python developer with hands-on experience building Azure AI agents. Based in Kerala, India.">
   <meta name="author" content="Sivaprasad G">
+  <meta name="google" content="notranslate">
   <link rel="canonical" href="https://sprasadgdev.github.io/">
 
   <meta property="og:type" content="profile">
@@ -27,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,7 +36,7 @@
     "name": "Sivaprasad G",
     "jobTitle": "Microsoft Certified Trainer and Python Developer",
     "url": "https://sprasadgdev.github.io/",
-    "image": "https://sprasadgdev.github.io/photo.jpg",
+    "image": "https://sprasadgdev.github.io/hero.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "Kerala",
@@ -59,7 +61,10 @@
       --wash: #f5f5f7;
       --leaf: #0071e3;
       --on-leaf: #ffffff;
-      --zari: #0071e3;
+      --btn: #0071e3;
+      --btn-hover: #0077ed;
+      --btn-line: #0066cc;
+      --zari: #d2d2d7;
       --glass-hi: rgba(255, 255, 255, 0.48);
       --glass-lo: rgba(255, 255, 255, 0.22);
       --glass-edge: rgba(255, 255, 255, 0.95);
@@ -80,7 +85,10 @@
         --wash: #1d1d1f;
         --leaf: #2997ff;
         --on-leaf: #ffffff;
-        --zari: #2997ff;
+        --btn: #0071e3;
+        --btn-hover: #0077ed;
+        --btn-line: #2997ff;
+        --zari: #48484a;
         --glass-hi: rgba(40, 40, 44, 0.48);
         --glass-lo: rgba(18, 18, 20, 0.30);
         --glass-edge: rgba(255, 255, 255, 0.22);
@@ -201,10 +209,10 @@
     .lang-btn {
       display: inline-flex; align-items: center; gap: 6px;
       font: inherit; font-size: 0.95rem; line-height: 1.4; font-weight: 600;
-      color: var(--leaf); cursor: pointer; margin-left: 6px;
+      color: var(--ink); cursor: pointer; margin-left: 6px;
       background: var(--paper); border: 1px solid var(--glass-rim); border-radius: 999px; padding: 6px 14px; min-height: 40px;
     }
-    .lang-btn:hover { border-color: var(--leaf); }
+    .lang-btn:hover { border-color: var(--ink-soft); }
     .lang-btn .icon { width: 17px; height: 17px; }
     @media (max-width: 860px) {
       .site-head nav a { display: none; }
@@ -214,15 +222,13 @@
 
     /* Icon chips for links */
     .chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      min-height: 44px; padding: 8px 16px 8px 13px; border-radius: 999px;
-      color: var(--ink); text-decoration: none; font: inherit; font-size: 0.98rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 7px;
+      min-height: 44px; padding: 0; border: 0; background: none;
+      color: var(--btn-line); text-decoration: none; font: inherit; font-size: 1rem; font-weight: 500;
       cursor: pointer; white-space: nowrap; overflow-wrap: normal;
-      background: var(--paper); border: 1px solid var(--line);
-      transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .chip:hover { color: var(--leaf); border-color: var(--leaf); background: var(--wash); }
-    .btn .icon { margin-right: 8px; }
+    .chip:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+    .chip .icon { width: 19px; height: 19px; }
 
     /* Phone dock: quick contact, always in reach */
     .dock {
@@ -239,6 +245,10 @@
     }
     .dock a:active, .dock button:active { background: var(--glass-lo); }
     .dock .icon { width: 22px; height: 22px; }
+    .dock { transition: opacity 0.3s ease, transform 0.3s ease; }
+    :root.at-contact .dock { opacity: 0; transform: translate(-50%, 16px); pointer-events: none; }
+    :root.at-contact .edge-bottom { opacity: 0; }
+    .edge-bottom { transition: opacity 0.3s ease; }
     .dock span, .dock .label { transition: opacity 0.25s ease, max-height 0.3s ease; max-height: 1.4em; overflow: hidden; }
     .dock a, .dock button { transition: padding 0.3s ease, min-height 0.3s ease; }
     :root.reading .dock a, :root.reading .dock button { min-height: 40px; padding-top: 9px; padding-bottom: 9px; }
@@ -269,7 +279,7 @@
     p { margin: 0 0 1em; }
 
     /* Hero */
-    .hero { padding-top: clamp(36px, 8vw, 96px); padding-bottom: clamp(16px, 3vw, 32px); }
+    .hero { padding-top: clamp(36px, 8vw, 96px); padding-bottom: clamp(56px, 8vw, 96px); }
     .hero h1 {
       text-transform: uppercase;
       font-size: clamp(2.6rem, 10.5vw, 6.5rem);
@@ -286,8 +296,8 @@
       animation: rise 0.9s 0.35s cubic-bezier(.2, .7, .2, 1) both;
     }
     .hero-grid {
-      display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-      grid-template-areas: "text now";
+      display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      grid-template-areas: "text photo" "text now";
       gap: 32px clamp(32px, 6vw, 80px); align-items: start;
       animation: rise 0.9s 0.5s cubic-bezier(.2, .7, .2, 1) both;
     }
@@ -298,26 +308,36 @@
     .intro { color: var(--ink-soft); max-width: 52ch; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .btn {
-      display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px;
-      border-radius: 999px; border: 1.5px solid var(--leaf);
-      color: var(--leaf); text-decoration: none; font-weight: 600; font-size: 1.05rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 22px; border-radius: 980px;
+      border: 1px solid var(--btn-line); background: transparent; color: var(--btn-line);
+      font: inherit; font-size: 1.0625rem; font-weight: 500; letter-spacing: -0.01em;
+      text-decoration: none; cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
-    .btn:hover { background: var(--wash); }
-    .btn-primary { background: var(--leaf); color: var(--on-leaf); }
-    .btn-primary:hover { background: var(--leaf); filter: brightness(1.08); }
-    .elsewhere { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 20px 0 0; }
+    .btn:hover { background: var(--btn-line); border-color: var(--btn-line); color: #fff; }
+    .btn-primary { background: var(--btn); border-color: var(--btn); color: #fff; }
+    .btn-primary:hover { background: var(--btn-hover); border-color: var(--btn-hover); color: #fff; }
+    .btn:active { transform: scale(0.98); }
+
+    /* Apple-style text link with a chevron */
+    .more-link {
+      display: inline-flex; align-items: center; gap: 0.3em; min-height: 44px;
+      color: var(--btn-line); font-weight: 500; text-decoration: none;
+    }
+    .more-link::after {
+      content: ""; width: 0.42em; height: 0.42em; margin-left: 0.1em;
+      border-top: 1.6px solid currentColor; border-right: 1.6px solid currentColor;
+      transform: rotate(45deg);
+    }
+    .more-link:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+    .elsewhere { display: flex; flex-wrap: wrap; gap: 4px 24px; list-style: none; padding: 0; margin: 14px 0 0; }
 
     .portrait {
-      position: relative; margin: 0 0 clamp(36px, 5vw, 64px);
-      border-radius: 24px; overflow: hidden; background: var(--wash);
-      box-shadow: 0 20px 48px rgba(18, 38, 31, 0.14), 0 2px 6px rgba(18, 38, 31, 0.06);
-      animation: rise 0.9s 0.4s cubic-bezier(.2, .7, .2, 1) both;
+      grid-area: photo; margin: 0; border-radius: 22px; overflow: hidden; background: var(--band);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.05);
     }
-    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
-    @media (max-width: 640px) {
-      .portrait { border-radius: 20px; }
-      .portrait img { aspect-ratio: 3 / 2; }
-    }
+    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
     .hero-text { grid-area: text; }
     .now { grid-area: now; }
 
@@ -329,7 +349,7 @@
     .now strong { color: var(--ink); font-weight: 600; display: block; }
 
     @media (max-width: 820px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "now"; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "text" "now"; }
     }
 
     /* Sections */
@@ -355,14 +375,13 @@
     }
     .feature h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 8px; }
     .meta { color: var(--ink-soft); font-size: 0.98rem; }
-    .case h4 { font-size: 0.98rem; font-weight: 650; color: var(--leaf); letter-spacing: -0.01em; margin: 22px 0 4px; }
+    .case h4 { font-size: 0.98rem; font-weight: 650; color: var(--ink); letter-spacing: -0.01em; margin: 22px 0 4px; }
     .case p { max-width: 54ch; margin-bottom: 0; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 24px 0; }
     .tags li {
       font-size: 0.9rem; padding: 3px 12px; border-radius: 999px;
       border: 1px solid var(--line); background: var(--paper); color: var(--ink-soft);
     }
-    .textlink { font-weight: 600; }
 
     /* MotherWell flow: a real sequence, so it is numbered and joined by a line. */
     .flow { list-style: none; margin: 0; padding: 0; counter-reset: step; align-self: center; }
@@ -392,7 +411,7 @@
 
     /* Live MotherWell demo */
     .flow li::before { transition: background 0.25s ease, color 0.25s ease; }
-    .flow li.on::before { background: var(--leaf); color: #fff; }
+    .flow li.on::before { background: var(--ink); border-color: var(--ink); color: var(--paper); }
     .demo {
       grid-column: 1 / -1; background: var(--band); border: 0;
       border-radius: 18px; padding: clamp(18px, 3vw, 28px);
@@ -406,7 +425,7 @@
       min-height: 40px; padding: 6px 14px; border-radius: 999px;
       background: var(--paper); border: 1px solid var(--line);
     }
-    .preset[aria-pressed="true"] { border-color: var(--leaf); color: var(--leaf); }
+    .preset[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
     .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: end; }
     .field label { display: block; font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 4px; line-height: 1.3; }
     .field input {
@@ -414,18 +433,17 @@
       font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper); border: 1px solid var(--line);
     }
     .field input:focus { outline: 2px solid var(--leaf); outline-offset: 1px; }
-    button.btn { font: inherit; font-weight: 600; font-size: 1.05rem; cursor: pointer; }
     .run-btn { margin-top: 18px; }
     .demo-out { border-left: 2px solid var(--zari); padding-left: 20px; min-height: 120px; scroll-margin-top: 96px; }
     .demo-out .empty { color: var(--ink-soft); margin: 0; }
-    .demo-out h5 { font-size: 0.95rem; font-weight: 650; color: var(--leaf); margin: 0 0 4px; letter-spacing: -0.01em; }
+    .demo-out h5 { font-size: 0.95rem; font-weight: 650; color: var(--ink); margin: 0 0 4px; letter-spacing: -0.01em; }
     .demo-out section + section { margin-top: 16px; }
     .demo-out p { margin: 0 0 6px; font-size: 0.98rem; }
     .flags { list-style: none; margin: 0; padding: 0; }
     .flags li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 0.96rem; padding: 4px 0; }
     .flags .tag {
       font-size: 0.78rem; font-weight: 700; padding: 1px 9px; border-radius: 999px;
-      border: 1px solid var(--leaf); color: var(--leaf);
+      border: 1px solid var(--ink-soft); color: var(--ink);
     }
     .flags .range { color: var(--ink-soft); font-size: 0.88rem; }
     .payload {
@@ -434,7 +452,7 @@
     }
     .questions { margin: 0; padding-left: 1.2em; }
     .questions li { margin-bottom: 8px; font-size: 0.98rem; }
-    .questions li::marker { color: var(--zari); font-weight: 700; }
+    .questions li::marker { color: var(--ink-soft); font-weight: 700; }
     @media (max-width: 820px) { .demo-grid { grid-template-columns: minmax(0, 1fr); } }
     @media (prefers-reduced-motion: reduce) { .flow li::before { transition: none; } }
 
@@ -461,7 +479,7 @@
     .timeline p:last-child { margin-bottom: 0; max-width: 62ch; }
     .bullets { margin: 0; padding-left: 1.1em; max-width: 62ch; }
     .bullets li { padding-left: 4px; margin-bottom: 6px; }
-    .bullets li::marker { color: var(--zari); }
+    .bullets li::marker { color: var(--ink-soft); }
     @media (max-width: 640px) {
       .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
     }
@@ -492,12 +510,36 @@
     @media (max-width: 720px) { .workshops li { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
 
     /* Contact */
-    .contact p { max-width: 52ch; color: var(--ink-soft); }
-    .btn-large { min-height: 56px; padding: 0 28px; font-size: 1.15rem; margin: 8px 0 28px; }
+    .contact .wrap { text-align: center; }
+    .contact p { max-width: 52ch; color: var(--ink-soft); margin-inline: auto; }
+    .round-actions {
+      display: flex; justify-content: center; align-items: flex-end; flex-wrap: wrap;
+      gap: 18px clamp(22px, 5vw, 44px); list-style: none; padding: 0; margin: 32px 0 0;
+    }
+    .round {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: var(--ink); text-decoration: none; background: none; border: 0; padding: 0;
+      font: inherit; font-size: 0.95rem; font-weight: 500; cursor: pointer;
+      white-space: nowrap; overflow-wrap: normal;
+    }
+    .round .disc {
+      width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--paper); border: 1px solid var(--line); color: var(--btn-line);
+      transition: transform 0.3s cubic-bezier(.2, .7, .2, 1), box-shadow 0.3s ease, background-color 0.2s ease;
+    }
+    .round .disc .icon { width: 25px; height: 25px; }
+    .round:hover .disc, .round:active .disc {
+      background: var(--btn); border-color: var(--btn); color: #fff;
+      transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0, 113, 227, 0.30);
+    }
+    .round:active .disc { transform: scale(0.95); }
+    .round:focus-visible { outline: none; }
+    .round:focus-visible .disc { outline: 3px solid var(--leaf); outline-offset: 3px; }
+    :root[lang="ja"] .contact p { max-width: 34em; }
 
     /* Footer */
-    .site-foot { padding-block: 28px 40px; color: var(--ink-soft); font-size: 0.95rem; }
-    .site-foot p { margin: 0; }
+    .site-foot { padding-block: 32px 40px; text-align: center; }
+    .copy { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
 
     /* Japanese version */
     .ja-only { display: none; }
@@ -509,8 +551,7 @@
       letter-spacing: 0.12em; margin: 0 0 10px;
     }
     .ja-note {
-      font-size: 0.95rem; color: var(--ink-soft); background: var(--band);
-      border-radius: 12px; padding: 10px 14px; max-width: 44em; margin-bottom: 28px;
+      font-size: 0.88rem; color: var(--ink-soft); max-width: 36em; margin: 20px 0 0;
     }
     :root[lang="ja"] body { font-family: -apple-system, BlinkMacSystemFont, "Geist", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Zen Kaku Gothic New", "Yu Gothic", Meiryo, sans-serif; line-height: 1.85; letter-spacing: 0.02em; overflow-wrap: anywhere; }
     :root[lang="ja"] h2, :root[lang="ja"] h3, :root[lang="ja"] h4 { letter-spacing: 0.01em; line-height: 1.4; }
@@ -518,19 +559,29 @@
     :root[lang="ja"] .intro, :root[lang="ja"] .case p, :root[lang="ja"] .contact p { max-width: 34em; }
     :root[lang="ja"] p, :root[lang="ja"] li, :root[lang="ja"] dd, :root[lang="ja"] h2, :root[lang="ja"] h3 { word-break: auto-phrase; }
 
+    /* Scroll reveal: content rises gently into view once */
+    .js [data-reveal] {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.9s cubic-bezier(.2, .7, .2, 1), transform 0.9s cubic-bezier(.2, .7, .2, 1);
+      transition-delay: var(--d, 0ms);
+    }
+    .js [data-reveal].in { opacity: 1; transform: none; }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .kasavu-top, .hero h1, .roleline, .portrait, .hero-grid { animation: none; }
+      .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .kasavu-top, .hero h1, .roleline, .hero-grid { animation: none; }
       .site-head, .mark, .dock a, .dock button, .dock span, .dock .label { transition: none; }
     }
     @media print {
-      .kasavu-top, .hero h1, .roleline, .portrait, .hero-grid { animation: none; }
+      .kasavu-top, .hero h1, .roleline, .hero-grid { animation: none; }
       .head-shell, .dock, .toast, .edge, .actions, .elsewhere, .skip { display: none; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
       .section { padding-block: 24px; }
     }
   </style>
 </head>
-<body>
+<body class="notranslate">
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -543,7 +594,7 @@
 
   <div class="head-shell wrap">
     <header class="site-head glass">
-      <a class="brand" href="#main"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d1d1f"/><text x="32" y="41" text-anchor="middle" font-family="Geist, -apple-system, Segoe UI, Arial, sans-serif" font-weight="700" font-size="25" letter-spacing="-1" fill="#ffffff">SG</text></svg>Sivaprasad G</a>
+      <a class="brand" href="#top" aria-label="Back to top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#1d1d1f"/><text x="32" y="41" text-anchor="middle" font-family="Geist, -apple-system, Segoe UI, Arial, sans-serif" font-weight="700" font-size="25" letter-spacing="-1" fill="#ffffff">SG</text></svg>Sivaprasad G</a>
       <nav aria-label="Main">
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#projects" data-i18n="navProjects">Projects</a>
@@ -560,27 +611,24 @@
       <h1 id="name">Sivaprasad G</h1>
       <p class="kana ja-only" lang="ja">シヴァプラサード・G</p>
       <p class="roleline" data-i18n="roleline">Microsoft Certified Trainer and Python developer, Kerala, India</p>
-      <figure class="portrait">
-        <picture>
-          <source media="(max-width: 640px)" srcset="photo-mobile.jpg" width="1410" height="940">
-          <img src="photo.jpg" width="1460" height="730" fetchpriority="high" decoding="async"
-               alt="Sivaprasad G standing beside the Apple Developer Center sign">
-        </picture>
-      </figure>
       <div class="hero-grid">
         <div class="hero-text">
-          <p class="ja-note ja-only" lang="ja">日本語は現在勉強中です（初級）。このページの日本語は翻訳ツールを使って作成しました。</p>
           <p class="lead" data-i18n="lead">I help people and teams adopt AI. I build AI agents on Azure, and I train the people who use them.</p>
           <p class="intro" data-i18n="intro">Python developer with one year of professional experience and hands-on experience with Azure AI agents. Microsoft Certified Trainer since 2020.</p>
           <div class="actions">
-            <a class="btn btn-primary js-mail" href="#contact"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="emailMe">Email me</span></a>
+            <a class="btn btn-primary js-mail" href="#contact"><span data-i18n="emailMe">Email me</span></a>
             <a class="btn" href="#projects" data-i18n="seeWork">See my work</a>
           </div>
           <ul class="elsewhere">
             <li><a class="chip" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
             <li><a class="chip" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
           </ul>
+          <p class="ja-note ja-only" lang="ja">日本語は現在勉強中です（初級）。このページの日本語は翻訳ツールを使って作成しました。</p>
         </div>
+        <figure class="portrait">
+          <img src="hero.jpg" width="1200" height="800" fetchpriority="high" decoding="async"
+               alt="Sivaprasad G standing beside the Apple Developer Center sign">
+        </figure>
         <aside class="now" aria-labelledby="now-title">
           <h2 id="now-title" data-i18n="nowTitle">Right now</h2>
           <ul>
@@ -594,19 +642,19 @@
 
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="wrap">
-      <h2 id="about-title" data-i18n="aboutTitle">What I do</h2>
+      <h2 id="about-title" data-reveal data-i18n="aboutTitle">What I do</h2>
       <div class="pillars">
-        <article>
+        <article data-reveal style="--d:0ms">
           <h3 data-i18n="p1T">Build AI agents</h3>
           <p data-i18n="p1P">I design and build AI agents in Python with Microsoft Foundry: single agents, function tools, and agents that work together.</p>
           <p class="proof" data-i18n="p1E"><span>Projects:</span> MotherWell, OnboardIQ</p>
         </article>
-        <article>
+        <article data-reveal style="--d:110ms">
           <h3 data-i18n="p2T">Train and enable people</h3>
           <p data-i18n="p2P">As a Microsoft Certified Trainer since 2020, I turn new technology into hands-on sessions that people can follow and use at work.</p>
           <p class="proof" data-i18n="p2E"><span>Experience:</span> corporate, one-to-one and college training</p>
         </article>
-        <article>
+        <article data-reveal style="--d:220ms">
           <h3 data-i18n="p3T">Help businesses go digital</h3>
           <p data-i18n="p3P">For a convention and events venue, I built the website and the Python back-end for customer enquiries, and advised on Google Business Profile and digital tools.</p>
           <p class="proof" data-i18n="p3E"><span>Experience:</span> one year, full time</p>
@@ -617,9 +665,9 @@
 
     <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="wrap">
-      <h2 id="projects-title" data-i18n="projectsTitle">Projects</h2>
+      <h2 id="projects-title" data-reveal data-i18n="projectsTitle">Projects</h2>
 
-      <article class="feature">
+      <article class="feature" data-reveal>
         <div class="case">
           <h3>MotherWell</h3>
           <p class="meta" data-i18n="mwMeta">Microsoft Agent-a-thon entry and Founderz Agent Architect final project, September 2026</p>
@@ -641,7 +689,7 @@
             <li data-i18n="tagMulti">Multi-agent</li>
             <li data-i18n="tagTools">Function tools</li>
           </ul>
-          <a class="textlink" href="https://github.com/sprasadgdev/motherwell" data-i18n="mwLink">View the code on GitHub</a>
+          <a class="more-link" href="https://github.com/sprasadgdev/motherwell" data-i18n="mwLink">View the code on GitHub</a>
         </div>
         <ol class="flow" aria-label="How MotherWell works">
           <li data-i18n="flow1"><span class="who">Mother</span><span class="what">Enters the values from her blood report</span></li>
@@ -676,12 +724,12 @@
       </article>
 
       <div class="more">
-        <article>
+        <article data-reveal style="--d:0ms">
           <h3>OnboardIQ</h3>
           <p data-i18n="oiqP">A four-agent platform for enterprise employee onboarding, built on Azure AI Foundry with a Streamlit interface.</p>
           <p class="meta" data-i18n="oiqMeta">Microsoft Reasoning Agents badge, Agents League 2026</p>
         </article>
-        <article>
+        <article data-reveal style="--d:110ms">
           <h3>Shiksha Copilot</h3>
           <p data-i18n="shP">A multilingual classroom-support agent built on Azure.</p>
           <p class="meta">AI Dev Days Hackathon 2026</p>
@@ -692,8 +740,8 @@
 
     <section id="experience" class="section" aria-labelledby="exp-title">
       <div class="wrap">
-      <h2 id="exp-title" data-i18n="expTitle">Experience</h2>
-      <ol class="timeline">
+      <h2 id="exp-title" data-reveal data-i18n="expTitle">Experience</h2>
+      <ol class="timeline" data-reveal>
         <li>
           <p class="when" data-i18n="job1When">Oct 2024 – Nov 2025</p>
           <div>
@@ -720,8 +768,8 @@
 
     <section id="skills" class="section" aria-labelledby="skills-title">
       <div class="wrap">
-      <h2 id="skills-title" data-i18n="skillsTitle">Skills and certifications</h2>
-      <dl class="skills">
+      <h2 id="skills-title" data-reveal data-i18n="skillsTitle">Skills and certifications</h2>
+      <dl class="skills" data-reveal>
         <div>
           <dt data-i18n="sk1T">AI and cloud</dt>
           <dd data-i18n="sk1D">Microsoft Foundry, Azure AI agents, function tools, multi-agent design, prompt engineering</dd>
@@ -772,9 +820,9 @@
 
     <section id="training" class="section" aria-labelledby="training-title">
       <div class="wrap">
-      <h2 id="training-title" data-i18n="wsTitle">Training and workshops</h2>
+      <h2 id="training-title" data-reveal data-i18n="wsTitle">Training and workshops</h2>
       <p class="section-intro" data-i18n="wsIntro">One-day, hands-on sessions for colleges and teams. Every participant builds something real by the end of the day, using free tools and simple language.</p>
-      <ul class="workshops">
+      <ul class="workshops" data-reveal>
         <li>
           <h3 data-i18n="ws1T">AI fundamentals, hands-on</h3>
           <p data-i18n="ws1P">Core AI ideas and responsible AI, aligned to the Microsoft AI-901 Azure AI Fundamentals exam. Participants build a small AI app on Azure.</p>
@@ -788,19 +836,19 @@
           <p data-i18n="ws3P">Create a GitHub account, make a repository and put a personal website live on GitHub Pages, the same way this site is published.</p>
         </li>
       </ul>
-      <a class="btn btn-primary js-mail" href="#contact" data-subject="Workshop enquiry" data-i18n="wsCta">Ask about a workshop</a>
+      <a class="btn js-mail" href="#contact" data-subject="Workshop enquiry" data-i18n="wsCta">Ask about a workshop</a>
       </div>
     </section>
 
     <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="wrap">
-      <h2 id="contact-title" data-i18n="contactTitle">Get in touch</h2>
+      <h2 id="contact-title" data-reveal data-i18n="contactTitle">Get in touch</h2>
       <p data-i18n="contactP">I'm open to roles in DX consulting, technical training and Python or Azure AI development, and to workshop invitations. Email is the quickest way to reach me.</p>
-      <a class="btn btn-primary btn-large js-mail" href="#contact"><svg class="icon"><use href="#i-mail"/></svg><span data-i18n="writeMe">Send me an email</span></a>
-      <ul class="elsewhere">
-        <li><a class="chip" href="https://github.com/sprasadgdev"><svg class="icon"><use href="#i-code"/></svg>GitHub</a></li>
-        <li><a class="chip" href="https://www.linkedin.com/in/sivaprasadg"><svg class="icon"><use href="#i-card"/></svg>LinkedIn</a></li>
-        <li><button class="chip share-btn" type="button"><svg class="icon"><use href="#i-share"/></svg><span data-i18n="share">Share</span></button></li>
+      <ul class="round-actions" aria-label="Contact options" data-reveal>
+        <li><a class="round primary js-mail" href="#contact"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span><span data-i18n="dockMail">Email</span></a></li>
+        <li><a class="round" href="https://github.com/sprasadgdev"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span><span>GitHub</span></a></li>
+        <li><a class="round" href="https://www.linkedin.com/in/sivaprasadg"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg></span><span>LinkedIn</span></a></li>
+        <li><button class="round share-btn" type="button"><span class="disc"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg></span><span data-i18n="share">Share</span></button></li>
       </ul>
       </div>
     </section>
@@ -816,12 +864,34 @@
   <div class="edge edge-top" aria-hidden="true"></div>
   <div class="edge edge-bottom" aria-hidden="true"></div>
 
-  <footer class="site-foot wrap">
-    <p>&copy; <span id="year">2026</span> SIVAPRASAD G. <span data-i18n="foot">Built with HTML, CSS and JavaScript. Published with GitHub Pages.</span></p>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p class="copy">&copy; <span id="year">2026</span> SIVAPRASAD G</p>
+    </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal blocks as they scroll into view (once). Without IntersectionObserver, show everything.
+    (function () {
+      var items = document.querySelectorAll("[data-reveal]");
+      if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+
+      // On phones, hide the bottom dock while the same contact buttons are on screen
+      var contactRow = document.querySelector(".round-actions");
+      if (contactRow) {
+        new IntersectionObserver(function (entries) {
+          document.documentElement.classList.toggle("at-contact", entries[0].isIntersecting);
+        }, { threshold: 0.2 }).observe(contactRow);
+      }
+    })();
 
     // Email: the address is not written on the page; it is put together only when someone taps an Email button.
     (function () {
@@ -956,9 +1026,7 @@
         ws3P: "GitHub アカウントとリポジトリを作り、GitHub Pages で自分の Web サイトを公開します。このサイトと同じ方法です。",
         wsCta: "ワークショップについて問い合わせる",
         contactTitle: "お問い合わせ",
-        writeMe: "メールを送る",
-        contactP: "DX コンサルティング、技術研修、Python・Azure AI 開発のお仕事、そしてワークショップのご依頼をお待ちしています。メールでのご連絡が一番確実です。",
-        foot: "HTML・CSS・JavaScript で作り、GitHub Pages で公開しています。"
+        contactP: "DX コンサルティング、技術研修、Python・Azure AI 開発のお仕事、そしてワークショップのご依頼をお待ちしています。メールでのご連絡が一番確実です。"
       };
       var titles = {
         en: document.title,
